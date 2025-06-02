@@ -2,8 +2,6 @@
 title: "Building Sustainable Microservices with bisslog"
 layout: post
 date: 2025-06-01
-categories: [bisslog]
-tags: [hexagonal, microservices]
 permalink: /bisslog/introducing-bisslog/
 ---
 
