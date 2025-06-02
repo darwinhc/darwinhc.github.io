@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% assign posts = site.bisslog | sort: "date" | reverse %}
+
+  {% for post in posts %}
+    {% include post-list.html %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %}
