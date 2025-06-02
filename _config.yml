@@ -167,6 +167,9 @@ kramdown:
       start_line: 1
 
 collections:
+  bisslog:
+    output: true
+    permalink: /bisslog/:title/
   tabs:
     output: true
     sort_by: order
