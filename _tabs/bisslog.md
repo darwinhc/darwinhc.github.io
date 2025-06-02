@@ -1,5 +1,5 @@
 ---
-layout: bisslog
+layout: home
 title: Bisslog
 icon: fa-solid fa-plug
 order: 3
