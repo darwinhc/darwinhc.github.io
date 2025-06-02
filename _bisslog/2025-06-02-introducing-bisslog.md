@@ -1,9 +1,12 @@
 ---
-layout: post
 title: "Building Sustainable Microservices with bisslog"
-date: 2025-06-02
+layout: post
+date: 2025-06-01
+categories: [bisslog]
+tags: [hexagonal, microservices]
 permalink: /bisslog/introducing-bisslog/
 ---
+
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" alt="bisslog logo" width="160"/>
