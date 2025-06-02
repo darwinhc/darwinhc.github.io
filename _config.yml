@@ -14,7 +14,7 @@ timezone: America/Bogota
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: “Darwin's architecture blog — featuring bisslog”
+title: Darwin's architecture blog — featuring bisslog
 
 tagline: Clean, pluggable microservices in Python (and beyond)
 
