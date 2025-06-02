@@ -1,4 +1,7 @@
-# 🧠 Darwin's Architecture Blog — Featuring `bisslog`
+# Darwin Herrera Architecture Blog — Featuring `bisslog`
+
+
+
 
 Welcome to the source code for my technical blog, published at  
 👉 **[https://darwinhc.github.io](https://darwinhc.github.io)**
@@ -15,6 +18,10 @@ This blog documents my journey in building **clean, decoupled and sustainable so
 ---
 
 ## 📌 Featured Project: `bisslog`
+
+<p>
+  <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" width="180" />
+</p>
 
 `bisslog` is a minimalistic, framework-agnostic library that helps you build microservices where:
 
@@ -44,13 +51,11 @@ This blog is powered by:
 I'm building in the open — you're welcome to follow the journey, contribute ideas, or use this repo as inspiration for your own blog.
 
 - 🔗 GitHub: [@darwinhc](https://github.com/darwinhc)
-- 📫 Contact: [your.email@example.com]
+- 📫 Contact: [darwinsherrerac@gmail.com](darwinsherrerac@gmail.com)
 - 🌱 Core repo: [`bisslog-core-py`](https://github.com/darwinhc/bisslog-core-py)
 
 If you find value in this content, consider starring the repos or sharing them with your team.
 
 ---
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" width="180" />
-</p>
+
