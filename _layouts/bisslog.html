@@ -4,6 +4,11 @@ refactor: true
 ---
 {% include lang.html %}
 
+
+<div class="bisslog-intro mb-4">
+  {{ content }}
+</div>
+
 {% assign all_pinned = site.bisslog | where: "pin", true %}
 {% assign all_normal = site.bisslog | where_exp: "item", "item.pin != true and item.hidden != true" %}
 {% assign posts = all_pinned | concat: all_normal %}
