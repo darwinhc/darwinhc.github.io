@@ -1,3 +1,8 @@
+---
+layout: home
+title: Darwin Herrera Architecture Blog — featuring bisslog
+---
+
 # 👋 Hi, I'm Darwin
 
 I'm a Systems and Computing Engineer, graduated from **Universidad Nacional de Colombia**, passionate about software architecture, microservices, and building tools that empower developers to move fast — without breaking things.
