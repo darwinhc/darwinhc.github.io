@@ -6,7 +6,7 @@ permalink: /bisslog/introducing-bisslog/
 ---
 
 
-<p align="center">
+<p>
   <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" alt="bisslog logo" width="160"/>
 </p>
 
@@ -25,6 +25,8 @@ As the service grows, you start noticing problems:
 
 These issues don’t just slow down development — they lead to **technical debt**, **fragile systems**, and **teams that can’t move fast**.
 
+![bisslog problem diagram](/assets/img/entry-points-problem.png)
+
 ---
 
 ## The Solution: `bisslog` + Hexagonal Architecture
@@ -42,7 +44,7 @@ It brings a practical and framework-agnostic implementation of **Hexagonal Archi
 
 ---
 
-![bisslog architecture diagram](https://raw.githubusercontent.com/darwinhc/darwinhc.github.io/master/assets/img/entry-points-explanation.png)
+![bisslog architecture diagram](/assets/img/entry-points-explanation.png)
 
 *Example: Entry points (HTTP, events) talk to domain logic through ports. Infrastructure is fully pluggable.*
 
