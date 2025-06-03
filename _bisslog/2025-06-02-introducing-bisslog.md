@@ -1,5 +1,5 @@
 ---
-title: "Building Sustainable Microservices with bisslog"
+title: "Building Sustainable Microservices with bisslog python"
 layout: post
 date: 2025-06-01
 permalink: /bisslog/introducing-bisslog/
