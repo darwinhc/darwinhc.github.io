@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Home
+title: Architecture blog Darwin Herrera
 ---
 
 # 👋 Hi, I'm Darwin
