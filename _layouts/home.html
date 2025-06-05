@@ -5,6 +5,10 @@ refactor: true
 
 {% include lang.html %}
 
+<div class="page-content">
+  {{ content }}  <!-- 🔥 Esto es lo que permite renderizar el contenido de index.md -->
+</div>
+
 {% assign all_pinned = site.posts | where: 'pin', 'true' %}
 {% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
 
