@@ -20,6 +20,16 @@ Whether you're building your first service or refining an architecture at scale,
 - Adapting your domain to HTTP, messaging, and serverless triggers
 - Keeping your logic portable, clean, and testable — even across frameworks or languages
 
+---
+
+Stable Use Case with Swappable Adapters
+
+![bisslog animation](/assets/img/bisslog-animation.gif)
+
+*The use case remains untouched while infrastructure components like Flask, RabbitMQ, MongoDB, and external providers interact through well-defined ports and adapters.*
+
+---
+
 📚 Want to dive deeper? Check out the official documentation at [`bisslog-docs`](https://github.com/darwinhc/bisslog-docs).
 
 🔍 Scroll down to start reading.  

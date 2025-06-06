@@ -1,7 +1,7 @@
 ---
 title: "Building Sustainable Microservices with bisslog python"
 layout: post
-date: 2025-06-01
+date: 2025-06-02
 permalink: /bisslog/introducing-bisslog/
 ---
 
@@ -166,7 +166,7 @@ This level of **future-proofing** is rare, and it’s built into `bisslog` by de
 
 ---
 
-[image]
+![bisslog animation](/assets/img/bisslog-animation.gif)
 
 *Use cases remain stable while frameworks and infrastructure evolve independently.*
 
