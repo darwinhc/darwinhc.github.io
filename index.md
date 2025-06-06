@@ -14,7 +14,7 @@ Welcome to my space where I write about ideas, tools, and architectural patterns
 
 ## 🛠️ Projects
 
-### [🔌 Bisslog](/bisslog)
+### [🔌 Bisslog](/bisslog/)
 
 **Bisslog** is a clean architecture toolkit for Python microservices — framework-agnostic, declaratively driven, and highly testable.
 
