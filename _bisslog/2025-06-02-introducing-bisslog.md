@@ -166,7 +166,7 @@ This level of **future-proofing** is rare, and it’s built into `bisslog` by de
 
 ---
 
-![bisslog animation](/assets/img/bisslog-animation.gif)
+![bisslog animation: Use cases remain stable while frameworks and infrastructure evolve independently.](/assets/img/bisslog-animation.gif)
 
 *Use cases remain stable while frameworks and infrastructure evolve independently.*
 
