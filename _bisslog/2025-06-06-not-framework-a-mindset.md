@@ -11,8 +11,6 @@ permalink: /bisslog/mindset-vs-dependency/
 
 ---
 
-## bisslog isn’t a Dependency — It’s a Mindset
-
 What if your architecture didn’t *depend* on a library — but simply followed a consistent way of thinking?
 
 That’s the philosophy behind `bisslog`.
