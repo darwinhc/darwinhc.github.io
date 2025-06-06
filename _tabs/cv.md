@@ -7,7 +7,6 @@ order: 1
 
 Systems and Computing Engineer | Backend Architect | Microservices Enthusiast
 
-<br>
 *Passion for engineering and commitment to excellence*
 
 ---
