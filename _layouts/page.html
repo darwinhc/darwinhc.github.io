@@ -7,10 +7,13 @@ layout: default
 <article class="px-1">
   {% if page.layout == 'page' or page.collection == 'tabs' %}
     {% assign tab_key = page.title | downcase %}
-    {% assign title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
+    {% assign sidebar_title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
+    {% assign header_title = page.page_title | default: sidebar_title %}
+
     <h1 class="dynamic-title">
-      {{ title }}
+      {{ header_title }}
     </h1>
+
     <div class="content">
       {{ content }}
     </div>
