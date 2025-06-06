@@ -27,7 +27,7 @@ layout: default
           {% assign alt = post.image.alt | xml_escape | default: "Preview Image" %}
 
           <div class="col-md-5">
-            <img src="{{ src }}" alt="{{ alt }}" loading="lazy">
+            <img src="{{ src }}" alt="{{ alt }}" loading="lazy" class="no-lazy">
           </div>
 
           {% assign card_body_col = "7" %}
