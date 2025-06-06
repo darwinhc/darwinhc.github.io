@@ -6,16 +6,16 @@ order: 1
 ---
 
 # Darwin Stiven Herrera Cartagena  
+
 *Passion for engineering and commitment to excellence*  
+
 *Systems and Computing Engineer | Backend Architect | Microservices Enthusiast*
 
 ---
 
 ## 👨‍💻 Summary
 
-Results-driven software engineer with over 4 years of experience designing, developing, and optimizing scalable backend architectures using **Python**, **Java (Spring Boot)**, and **JavaScript**. Strong background in cloud technologies (AWS, Azure), event-driven systems, and enterprise integrations.
-
-Passionate about building clean microservices, improving developer experience, and promoting hexagonal architecture principles across teams.
+Results-driven **Software Engineer** with 4+ years of experience in designing, developing, and optimizing scalable backend architectures using **Python**, **Java (Spring Boot)** & **JavaScript**, cloud technologies (AWS, Azure, Kubernetes, Docker), event-driven architectures and enterprise integrations. Passionate about building high-performance microservices and distributed systems, ensuring reliability, while mentoring teams and driving technical excellence.
 
 ---
 
@@ -30,9 +30,9 @@ Passionate about building clean microservices, improving developer experience, a
 - Architected cross-functional solutions across banking and energy sectors.
 
 **Key Achievements:**
-- ✅ Reduced backend development time by 80% with a Spring Boot library.
-- ✅ Modernized an in-house Python library to support event-driven microservices.
-- ✅ Created a cost-saving data engineering platform with Azure Lambdas and AKS.
+- Reduced development time by 80% with a Spring Boot library.
+- Modernized a Python library for asynchronous events and queues.
+- Designed a cost-saving data engineering solution with Azure Lambdas and AKS.
 
 ---
 
@@ -86,6 +86,12 @@ Passionate about building clean microservices, improving developer experience, a
 - German (Beginner A1+)
 
 ---
+
+## 🧩 Soft Skills
+
+- High attention to detail
+- Constant learner and self-manager
+- Adaptable to changing environments and technologies
 
 ## 🤝 Let’s Connect
 
