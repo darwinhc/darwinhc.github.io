@@ -1,10 +1,10 @@
 ---
 layout: page
 icon: fas fa-id-card
+title: Darwin Stiven Herrera Cartagena
 order: 1
 ---
 
-# Darwin Stiven Herrera Cartagena  
 Systems and Computing Engineer | Backend Architect | Microservices Enthusiast
 
 <br>
