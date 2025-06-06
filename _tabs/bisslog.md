@@ -5,9 +5,8 @@ icon: fa-solid fa-plug
 order: 3
 ---
 
-<p>
+
 ![bisslog imagotipo](/assets/img/brand/bisslog-logo-imagotipo.png)
-</p>
 
 Welcome to **Bisslog**, the home of clean, testable, and framework-agnostic microservices.
 
