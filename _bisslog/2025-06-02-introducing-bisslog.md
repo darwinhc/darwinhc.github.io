@@ -7,7 +7,7 @@ permalink: /bisslog/introducing-bisslog/
 
 
 <p>
-  <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" alt="bisslog logo" width="160"/>
+  <img src="/assets/img/brand/bisslog-logo-imagotipo.png" alt="bisslog logo" width="160"/>
 </p>
 
 ---

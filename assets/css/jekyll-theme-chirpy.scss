@@ -7,8 +7,3 @@
   .bundle
 {%- endif -%}
 ';
-
-/* append your custom style below */
-.no-shimmer::before {
-  display: none !important;
-}
