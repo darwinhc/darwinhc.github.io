@@ -5,8 +5,9 @@ icon: fa-solid fa-plug
 order: 3
 ---
 
-![bisslog-imagotipo]({{ '/assets/img/brand/bisslog-logo-imagotipo.png' | relative_url }}){: .no-shimmer }
-
+<a class="no-shimmer">
+  <img src="{{ '/assets/img/brand/bisslog-logo-imagotipo.png' | relative_url }}" alt="bisslog logo">
+</a>
 
 Welcome to **Bisslog**, the home of clean, testable, and framework-agnostic microservices.
 
