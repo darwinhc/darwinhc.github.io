@@ -1,6 +1,5 @@
 ---
 layout: page
-title: CV
 icon: fas fa-id-card
 order: 1
 ---
