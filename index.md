@@ -1,31 +1,34 @@
 ---
 layout: home
-title: Architecture blog Darwin Herrera
+# Index page
 ---
 
 # 👋 Hi, I'm Darwin
 
-I'm a Systems and Computing Engineer, graduated from **Universidad Nacional de Colombia**, passionate about software architecture, microservices, and building tools that empower developers to move fast — without breaking things.
+I'm a Systems and Computing Engineer, graduated from **Universidad Nacional de Colombia** 🇨🇴.  
+I’m passionate about software architecture, clean code, and building tools that empower developers to move fast — without breaking things.
+
+Welcome to my space where I write about ideas, tools, and architectural patterns that I’ve applied (and battle-tested) in real-world projects.
 
 ---
 
-## ✨ What you’ll find here
+## 🛠️ Projects
 
-- Deep dives into the `bisslog` ecosystem — a set of libraries I’ve built to help developers structure their Python microservices in a clean, decoupled, and testable way.
-- Architecture patterns you can actually apply.
-- Tips on keeping your services flexible, maintainable, and fun to work on.
+### 🔌 Bisslog
+
+**Bisslog** is a clean architecture toolkit for Python microservices — framework-agnostic, declaratively driven, and highly testable.
+
+It’s built to help you:
+
+- Keep your logic decoupled from frameworks and infrastructure.
+- Apply Hexagonal Architecture (Ports and Adapters) with minimal effort.
+- Declare behavior and generate boilerplate code automatically.
+
+🔗 Explore more:  
+→ [Bisslog posts](/bisslog)  
+→ [bisslog-core-py on GitHub](https://github.com/darwinhc/bisslog-core-py)  
+→ [bisslog Docs](https://github.com/darwinhc/bisslog-docs)
 
 ---
 
-## 🔧 About `bisslog`
-
-`bisslog` is more than a library — it’s a mindset. I built it to promote:
-
-- Strong separation of concerns (Ports & Adapters / Hexagonal architecture)
-- Framework-agnostic logic — code that doesn’t depend on Flask, FastAPI, or AWS
-- Declarative configuration to reduce boilerplate and speed up delivery
-
----
-
-👉 [Start here: bisslog-core-py on GitHub](https://github.com/darwinhc/bisslog-core-py)  
-📚 [Docs here: bisslog-docs](https://github.com/darwinhc/bisslog-docs)
+_Thanks for stopping by — and don’t worry, I’m not afraid of commitment… to good architecture._
