@@ -5,6 +5,8 @@ icon: fa-solid fa-plug
 order: 3
 ---
 
+![bisslog-imagotipo](/assets/img/brand/bisslog-logo-imagotipo.png)
+
 Welcome to **Bisslog**, the home of clean, testable, and framework-agnostic microservices.
 
 Here you'll find a collection of technical articles, real-world use cases, and advanced patterns built with the `bisslog` ecosystem — including [`bisslog-core-py`](https://github.com/darwinhc/bisslog-core-py), [`bisslog-flask`](https://github.com/darwinhc/bisslog-flask), [`bisslog-aws-lambda-py`](https://github.com/darwinhc/bisslog-aws-lambda-py), and more.
