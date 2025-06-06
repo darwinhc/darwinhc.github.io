@@ -1,5 +1,5 @@
 ---
-title: "bisslog isn't a dependency — it's a mindset"
+title: "Bisslog isn't a dependency — it's a mindset"
 layout: post
 date: 2025-06-06
 permalink: /bisslog/mindset-vs-dependency/
@@ -41,7 +41,7 @@ Your function can be plain. It can live in any folder. It doesn’t need to inhe
 
 More importantly:
 
-    🧠 Your use cases remain decoupled.
+> 🧠 Your use cases remain decoupled.
 
 You can rename the decorator. Replace it. Remove it entirely. Your domain logic stays untouched.
 
