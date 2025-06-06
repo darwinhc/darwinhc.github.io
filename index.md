@@ -25,8 +25,8 @@ It’s built to help you:
 - Declare behavior and generate boilerplate code automatically.
 
 🔗 Explore more:  
-→ [bisslog-core-py on GitHub](https://github.com/darwinhc/bisslog-core-py)  
-→ [bisslog Docs](https://github.com/darwinhc/bisslog-docs)
+[bisslog-core-py on GitHub](https://github.com/darwinhc/bisslog-core-py)  
+[bisslog Docs](https://github.com/darwinhc/bisslog-docs)
 
 ---
 
