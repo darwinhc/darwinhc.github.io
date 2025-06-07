@@ -142,9 +142,6 @@ This is not an anti-framework manifesto — it’s a call for **clarity**. Light
 
 - **Bisslog Core Library**: [GitHub](https://github.com/darwinhc/bisslog-core-py)  
 - **Documentation and Examples**: [Bisslog Docs](https://darwinhc.github.io/bisslog/)
-- **Follow-up Articles**:  
-  - [Metadata as Architecture](https://darwinhc.github.io/bisslog/metadata-contracts/)  
-  - [Ports and Adapters Made Practical](https://darwinhc.github.io/bisslog/hexagonal-python/)
 
 ---
 
