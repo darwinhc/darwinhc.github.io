@@ -38,7 +38,7 @@ At the heart of this approach lies the application business rules layer, a core 
 6. [Call to Action: Embrace the Bisslog Mindset](#6-call-to-action-embrace-the-bisslog-mindset)
 7. [Common Pitfalls and Anti-Patterns](#7-common-pitfalls-and-anti-patterns)
 8. [Conclusion: Designing for Longevity, Not Just Delivery](#8-conclusion-designing-for-longevity-not-just-delivery)
-9. [References](#9-references)
+9. [References](#references)
 
 
 
