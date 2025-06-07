@@ -5,7 +5,6 @@ layout: post
 permalink: /architecture-lightweight-frameworks-coupling
 ---
 
-# The Myth of Lightweight Frameworks: When Convenience Becomes Coupling
 
 *What if the very tools we use to simplify development are silently undermining our software's sustainability?*
 
