@@ -12,6 +12,35 @@ Modern software systems require not only functionality, but structural sustainab
 At the heart of this approach lies the application business rules layer, a core component often diluted or entangled within frameworks and delivery mechanisms. Grounded in Clean Architecture and Hexagonal Architecture principles, this work explores how to implement this layer independently of frameworks, databases, or transport layers. By isolating business logic in framework-agnostic use cases, exposing ports for external communication, and enforcing validation and observability within the core, we build systems that are robust, testable, and evolvable. The techniques and patterns described are applicable across programming languages and environments, forming a universal foundation for sustainable backend development.
 
 
+## Table of Contents
+
+1. [Introduction](#1-introduction)
+2. [Theoretical Framework: Clean Architecture and Hexagonal Boundaries](#2-theoretical-framework-clean-architecture-and-hexagonal-boundaries)
+   - [2.1 Clean Architecture: Layers of Intent and Independence](#21-clean-architecture-layers-of-intent-and-independence)
+   - [2.2 Hexagonal Architecture: Ports and Adapters](#22-hexagonal-architecture-ports-and-adapters)
+   - [2.3 Metadata as an Architectural Contract](#23-metadata-as-an-architectural-contract)
+   - [2.4 Complementarity and Application](#24-complementarity-and-application)
+3. [Designing the Application Core: Use Cases, Ports, and Isolation](#3-designing-the-application-core-use-cases-ports-and-isolation)
+   - [3.1 Use Cases as Coordinators of Behavior](#31-use-cases-as-coordinators-of-behavior)
+   - [3.2 Defining Ports for External Collaboration](#32-defining-ports-for-external-collaboration)
+   - [3.3 Avoiding Framework Leakage](#33-avoiding-framework-leakage)
+   - [3.4 The Role of Isolation in Business Logic Longevity](#34-the-role-of-isolation-in-business-logic-longevity)
+4. [Integrating Delivery and Infrastructure](#4-integrating-delivery-and-infrastructure)
+   - [4.1 Driving Adapters: Invoking the Core](#41-driving-adapters-invoking-the-core)
+   - [4.2 Driven Adapters: Implementing Contracts](#42-driven-adapters-implementing-contracts)
+   - [4.3 Replaceability and Adapter Composition](#43-replaceability-and-adapter-composition)
+   - [4.4 Entry Points and Mapping Patterns](#44-entry-points-and-mapping-patterns)
+5. [Metadata as Architectural Communication](#5-metadata-as-architectural-communication)
+   - [5.1 Beyond Configuration: Metadata as Design Intent](#51-beyond-configuration-metadata-as-design-intent)
+   - [5.2 Communicating Across Roles](#52-communicating-across-roles)
+   - [5.3 Visual Models and Metadata Synchronization](#53-visual-models-and-metadata-synchronization)
+   - [5.4 AI-Augmented Architecture and Development](#54-ai-augmented-architecture-and-development)
+6. [Call to Action: Embrace the Bisslog Mindset](#6-call-to-action-embrace-the-bisslog-mindset)
+7. [Common Pitfalls and Anti-Patterns](#7-common-pitfalls-and-anti-patterns)
+8. [Conclusion: Designing for Longevity, Not Just Delivery](#8-conclusion-designing-for-longevity-not-just-delivery)
+9. [References](#9-references)
+
+
 
 ---
 
