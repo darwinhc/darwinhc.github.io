@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "bisslog Adapter Catalog: Organized by Purpose"
+title: "Bisslog Adapter Catalog: Organized by Purpose"
 date: 2025-06-06
 permalink: "/bisslog/adapter-catalog/"
 ---
