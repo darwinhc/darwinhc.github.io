@@ -1,6 +1,6 @@
 ---
 title: "The Myth of Lightweight Frameworks: When Convenience Becomes Coupling"
-date: 2025-06-06
+date: 2025-02-14
 layout: post
 permalink: /architecture-lightweight-frameworks-coupling
 ---
