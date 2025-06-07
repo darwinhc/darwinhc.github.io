@@ -2,7 +2,6 @@
 title: "Sustainable Microservices Through Separation: A Disciplined Approach to Business Logic"
 layout: post
 date: 2025-02-14
-permalink: /architecture-sustainable-separation-business-logic/
 ---
 
 ## Abstract
