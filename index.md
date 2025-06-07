@@ -1,7 +1,6 @@
 ---
 layout: home
-pagination:
-  enabled: true
+paginate: true
 ---
 
 # 👋 Hi, I'm Darwin
