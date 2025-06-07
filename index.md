@@ -1,6 +1,12 @@
 ---
 layout: home
-# Index page
+paginate: 10
+pagination:
+  enabled: true
+  per_page: 10
+  title: ':title'
+  sort_field: 'date'
+  sort_reverse: true
 ---
 
 # 👋 Hi, I'm Darwin
