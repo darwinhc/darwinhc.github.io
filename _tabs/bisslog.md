@@ -6,34 +6,46 @@ order: 3
 ---
 
 
+
 ![bisslog imagotipo](/assets/img/brand/bisslog-logo-imagotipo.png)
 
-Welcome to **Bisslog**, the home of clean, testable, and framework-agnostic microservices.
-
-Here you'll find a collection of technical articles, real-world use cases, and advanced patterns built with the `bisslog` ecosystem — including [`bisslog-core-py`](https://github.com/darwinhc/bisslog-core-py), [`bisslog-flask`](https://github.com/darwinhc/bisslog-flask), [`bisslog-aws-lambda-py`](https://github.com/darwinhc/bisslog-aws-lambda-py), and more.
-
-Whether you're building your first service or refining an architecture at scale, these posts will guide you through:
-
-- Designing hexagonal (port and adapter) architectures
-- Building plug-and-play integrations with queues, databases, and file systems
-- Leveraging declarative configuration and code generation
-- Adapting your domain to HTTP, messaging, and serverless triggers
-- Keeping your logic portable, clean, and testable — even across frameworks or languages
+> _A disciplined architecture for building sustainable microservices._
 
 ---
 
-Stable Use Case with Swappable Adapters
+## Why Bisslog?
+
+Frameworks promise simplicity — until they start dictating how your domain logic should behave.
+
+**Bisslog** is not a framework. It's a lightweight, dependency-free core library that helps you **organize your backend code around business rules**, not around frameworks, plugins, or adapters.
+
+It brings **architectural clarity** to Python microservices by:
+
+- Enforcing separation of concerns through well-defined ports.
+- Making your use cases framework-agnostic.
+- Encouraging metadata-driven definitions.
+- Keeping the domain code pure, testable, and portable.
+
+> If you've ever asked "Where should this logic go?" — Bisslog gives you the answer.
+
+---
+
+## What does it look like?
+
+![Entry point explanation Diagram](/assets/img/entry-points-explanation.png)
+
+Each Bisslog-based application is organized around _core use cases_ that define **what** the system does, completely separated from **how** it's triggered (e.g., HTTP, EventBridge, Lambda, CLI) or **where** data is stored (MongoDB, PostgreSQL, S3, etc).
+
+**No decorators leaking HTTP context into your domain. No global objects. No magic.**
 
 ![bisslog animation](/assets/img/bisslog-animation.gif)
 
-*The use case remains untouched while infrastructure components like Flask, RabbitMQ, MongoDB, and external providers interact through well-defined ports and adapters.*
-
 ---
 
-📚 Want to dive deeper? Check out the official documentation at [`bisslog-docs`](https://github.com/darwinhc/bisslog-docs).
+## Read more
 
-🔍 Scroll down to start reading.  
+📖 [The Myth of Lightweight Frameworks](/architecture-sustainable-separation-business-logic) – Why convenience becomes coupling.
 
----
-Let’s build microservices that last.
+📘 [Towards Sustainable Microservice Architecture](https://darwinhc.github.io/sustainable-microservices/) – The theory behind Bisslog’s design.
+
 
