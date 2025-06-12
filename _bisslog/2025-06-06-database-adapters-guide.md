@@ -1,5 +1,5 @@
 ---
-title: 🧩 Guide to Creating Database Adapters in `bisslog`
+title: 🧩 Guide to Creating Database Adapters in bisslog
 layout: post
 date: 2025-06-06
 permalink: /bisslog/database-adapters-guide/
