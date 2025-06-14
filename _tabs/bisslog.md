@@ -44,8 +44,8 @@ Each Bisslog-based application is organized around _core use cases_ that define 
 
 ## Read more
 
-📖 [The Myth of Lightweight Frameworks](/architecture-sustainable-separation-business-logic) – Why convenience becomes coupling.
+📖 [The Myth of Lightweight Frameworks](/architecture-lightweight-frameworks-coupling) – Why convenience becomes coupling.
 
-📘 [Towards Sustainable Microservice Architecture](https://darwinhc.github.io/sustainable-microservices/) – The theory behind Bisslog’s design.
+📘 [Towards Sustainable Microservice Architecture](/architecture-sustainable-separation-business-logic) – The theory behind Bisslog’s design.
 
 
