@@ -15,14 +15,26 @@ Systems and Computing Engineer | Backend Architect | Microservices Enthusiast
 
 ## 👨‍💻 Summary
 
-Results-driven **Software Engineer** with 4+ years of experience in designing, developing, and optimizing scalable backend architectures using **Python**, **Java (Spring Boot)** & **JavaScript**, cloud technologies (AWS, Azure, Kubernetes, Docker), event-driven architectures and enterprise integrations. Passionate about building high-performance microservices and distributed systems, ensuring reliability, while mentoring teams and driving technical excellence.
+Results-driven Software Engineer with 5 years of experience designing and building
+scalable backend systems in Python and Java (Spring Boot). Skilled in AWS/Azure,
+Docker/Kubernetes, and event-driven architectures with enterprise integrations.
+Passionate about high-performance microservices and distributed systems with a
+focus on reliability, security, and maintainability. Experienced with CI/CD (Azure
+DevOps), mentoring, and driving technical excellence.
 
 ---
 
 ## 💼 Professional Experience
 
+### **Backend Engineer** – BairesDev (Remote)  
+📍 Remote — *July 2025 – Present*
+
+- Design, optimize and develop backend solutions using Python in a microservices
+architecture for healthcare companies. Creating REST APIs and ETLs using FastAPI
+(ECS) & AWS Lambda.
+
 ### **Specialist Consultant** – SETI S.A.S (Remote)  
-📍 Medellín, Colombia — *April 2022 – Present*
+📍 Medellín, Colombia — *April 2022 – July 2025*
 
 - Designed and developed scalable microservices and shared libraries in Python and Java.
 - Integrated messaging systems like **RabbitMQ**, **Kafka**, **IBM MQ**.
