@@ -1,4 +1,4 @@
-# Darwin Herrera Architecture Blog — Featuring `bisslog`
+# Darwin Herrera Web Site | Senior AI & Backend Engineer | Python, Java, AWS
 
 
 

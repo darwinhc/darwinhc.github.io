@@ -14,12 +14,12 @@ timezone: America/Bogota
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Darwin Herrera Architecture Blog — featuring bisslog
+title: Darwin Herrera
 
-tagline: Clean, pluggable microservices in Python (and beyond)
+tagline: Senior AI & Backend Engineer | Python, Java, AWS
 
 description: >-
-  A blog about domain-driven architecture, microservices, and building frameworks that scale.
+  Senior AI & Backend Engineer | Python, Java, AWS
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
