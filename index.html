@@ -4,36 +4,69 @@ layout: home
 
 {% include lang.html %}
 
+<link rel="stylesheet" href="/assets/css/projects.css">
+
 <div class="page-content">
 
-  <h1>👋 Hi, I'm Darwin</h1>
-
-  <p>I'm a Systems and Computing Engineer, graduated from <strong>National University of Colombia</strong> 🇨🇴.<br>
-  I’m passionate about software architecture, clean code, and building tools that empower developers to move fast — without breaking things.</p>
-
-  <p>Welcome to my space where I write about ideas, tools, and architectural patterns that I’ve applied (and battle-tested) in real-world projects.</p>
-
-  <hr>
-
-  <h2>🛠️ Projects</h2>
-
-  <h3><a href="/bisslog/">🔌 Bisslog</a></h3>
-
-  <p><strong>Bisslog</strong> is a clean architecture toolkit for Python microservices — framework-agnostic, declaratively driven, and highly testable.</p>
-
-  <p>It’s built to help you:</p>
-  <ul>
-    <li>Keep your logic decoupled from frameworks and infrastructure.</li>
-    <li>Apply Hexagonal Architecture (Ports and Adapters) with minimal effort.</li>
-    <li>Declare behavior and generate boilerplate code automatically.</li>
-  </ul>
-
-  <p>🔗 Explore more:<br>
-  <a href="https://github.com/darwinhc/bisslog-core-py" target="_blank">bisslog-core-py on GitHub</a><br>
-  <a href="https://github.com/darwinhc/bisslog-docs" target="_blank">bisslog Docs</a></p>
+  <section class="hero-section">
+    <h1>👋 Hi, I'm Darwin</h1>
+    <p class="hero-subtitle">
+      Senior AI & Backend Engineer passionate about software architecture, clean code, and building high-performance systems. I specialize in Python, Java, and AWS.
+    </p>
+  </section>
 
   <hr>
 
-  <p><em>Thanks for stopping by — and don’t worry, I’m not afraid of commitment… to good architecture.</em></p>
+  <h2>🚀 Featured Projects</h2>
+  
+  <div class="portfolio-grid">
+
+    <!-- Bisslog -->
+    <div class="project-card">
+      <div class="project-tag">Clean Architecture</div>
+      <h3><a href="/bisslog/">🔌 Bisslog</a></h3>
+      <p>
+        A clean architecture toolkit for Python microservices. Framework-agnostic, declaratively driven, and built to help you apply Hexagonal Architecture with minimal effort.
+      </p>
+      <div class="project-links">
+        <a href="https://github.com/darwinhc/bisslog-core-py" target="_blank" class="project-link">
+          <i class="fab fa-github"></i> Core Repository
+        </a>
+        <a href="https://github.com/darwinhc/bisslog-docs" target="_blank" class="project-link">
+          <i class="fas fa-book"></i> Documentation
+        </a>
+      </div>
+    </div>
+
+    <!-- Realtime Events -->
+    <div class="project-card">
+      <div class="project-tag">Fullstack & AI</div>
+      <h3>Realtime Events Management</h3>
+      <p>
+        A real-time event system showcasing a domain-first approach. Features a Python/FastAPI backend with WebSockets and a React/TypeScript frontend.
+      </p>
+      <div class="project-links">
+        <a href="https://github.com/darwinhc/tt-events-realtime.service.python" target="_blank" class="project-link">
+          <i class="fab fa-github"></i> Backend
+        </a>
+        <a href="https://github.com/darwinhc/tt-events-realtime.frontend.react" target="_blank" class="project-link">
+          <i class="fab fa-github"></i> Frontend
+        </a>
+        <a href="https://tt-events-realtime-frontend-react.vercel.app/" target="_blank" class="project-link">
+          <i class="fas fa-external-link-alt"></i> Live Demo
+        </a>
+        <a href="/posts/building-a-real-time-event-management-system/" class="project-link">
+          <i class="fas fa-newspaper"></i> Read the Story
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <hr style="margin-top: 3rem;">
+
+  <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; padding: 2rem 0;">
+    <p><em>"Building tools that empower developers to move fast — without breaking things."</em></p>
+  </div>
 
 </div>
