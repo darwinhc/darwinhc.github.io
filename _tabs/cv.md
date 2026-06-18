@@ -7,61 +7,63 @@ order: 1
 
 # Darwin Stiven Herrera Cartagena
 
-Senior AI & Backend Engineer | Python, Java, AWS
-📍 Aachen, Germany | 📧 [darwinherrera1508@gmail.com](mailto:darwinherrera1508@gmail.com)
+Systems and Computing Engineer | Backend Architect | Microservices Enthusiast
 
-*I hold a German Chancenkarte (Opportunity Card Visa) allowing me to start working in Germany. I can join immediately.*
+*Passion for engineering and commitment to excellence*
 
 ---
 
 ## 👨‍💻 Summary
 
-Senior AI & Backend Engineer with 6+ years of experience designing and building scalable backend systems. Expert in **Python**, **Java (Spring Boot)**, and **AWS/Azure** cloud environments. Proven track record in developing high-performance microservices, event-driven architectures, and AI-powered features (LangChain, RAG). Passionate about distributed systems, observability, and technical excellence.
+Results-driven Software Engineer with 5 years of experience designing and building
+scalable backend systems in Python and Java (Spring Boot). Skilled in AWS/Azure,
+Docker/Kubernetes, and event-driven architectures with enterprise integrations.
+Passionate about high-performance microservices and distributed systems with a
+focus on reliability, security, and maintainability. Experienced with CI/CD (Azure
+DevOps), mentoring, and driving technical excellence.
 
 ---
 
 ## 💼 Professional Experience
 
-### **Senior Backend Engineer** – BairesDev (Remote)  
-📍 San Francisco, USA — *July 2025 – March 2026*
+### **Backend Engineer** – BairesDev (Remote)  
+📍 Remote — *July 2025 – Present*
 
-- Developed Python/FastAPI microservices and ETL pipelines on AWS ECS and Lambda for a US-based healthcare platform.
-- Processed 10,000+ personalized notifications daily using an event-driven architecture with SNS, SQS, EventBridge, and SES.
-- Built asynchronous workflows with AI-driven personalization and configurable delivery schedules to improve user engagement.
-- Improved reliability through idempotency controls, DLQ handling, and automated retry mechanisms.
-- Maintained 80%+ automated test coverage using Pytest and SonarQube in CI/CD pipelines.
+- Design, optimize and develop backend solutions using Python in a microservices
+architecture for healthcare companies. Creating REST APIs and ETLs using FastAPI
+(ECS) & AWS Lambda.
 
-### **Backend Engineer** – SETI S.A.S (Remote)  
+### **Specialist Consultant** – SETI S.A.S (Remote)  
 📍 Medellín, Colombia — *April 2022 – July 2025*
 
-- Built Python and Spring Boot microservices for an Enterprise ETL & Integration Platform used by Grupo Éxito.
-- Reduced development and testing effort by ~80% for a 5-member team by creating a reusable Spring Boot migration framework.
-- Migrated legacy platforms to cloud-native services, saving significant engineering time daily.
-- Modernized Python libraries with CI/CD and improved observability via OpenTelemetry and ELK.
-- Supported 50+ ETL and integration processes, ensuring business-critical production workflows.
+- Designed and developed scalable microservices and shared libraries in Python and Java.
+- Integrated messaging systems like **RabbitMQ**, **Kafka**, **IBM MQ**.
+- Led CI/CD automation using **Azure DevOps** and improved observability via **OpenTelemetry** and **ELK**.
+- Architected cross-functional solutions across banking and energy sectors.
 
-### **Backend Engineer** – AI Messaging SaaS  
-📍 Medellín, Colombia — *Nov 2021 – April 2022*
+**Key Achievements:**
+- Reduced development time by 80% with a Spring Boot library.
+- Modernized a Python library for asynchronous events and queues.
+- Designed a cost-saving data engineering solution with Azure Lambdas and AKS.
 
-- Led the architecture and backend development of an AI-driven messaging platform using Python and AWS serverless.
-- Designed reusable backend components using Hexagonal Architecture for improved maintainability.
-- Developed event-driven messaging workflows integrated with external platforms using SNS/SQS and webhooks.
-- Built AI-powered features using **LangChain** and **RAG** workflows for intelligent content retrieval.
-- Reduced AWS operating costs by ~25% through serverless-first architecture and optimized resource provisioning.
+---
 
 ### **Python Developer** – Freelance (Remote)  
-📍 Medellín, Colombia — *July 2020 – Nov 2021*
+📍 Chicago, USA — *July 2020 – Nov 2021*
 
-- Built AI-based (CNN) systems for facial and voice emotion detection using deep learning and computer vision.
 - Created REST APIs, ETLs, and web scrapers with Python (Scrapy, Selenium).
-- Developed frontends with React (Next.js) for marketing automation and AI analytics platforms.
+- Maintained legacy systems in **PHP** and Python.
+- Built frontends with **React (Next.js)** and **React Native** for marketing platforms.
+
+**Key Achievement:**
+- ✅ Built a microservices network to streamline scraping, API, and ETL processes.
 
 ---
 
 ## 🎓 Education
 
-**Bachelor’s in Systems & Computer Engineering**  
-*National University of Colombia, Medellín* — *2016 – 2024*
+**Professional Title: Systems and Computing Engineer**  
+*Universidad Nacional de Colombia* — *Graduated: Dec 2024*
 
 **Systems Technician**  
 *SENA, Medellín* — *Graduated: Nov 2015*
@@ -70,40 +72,41 @@ Senior AI & Backend Engineer with 6+ years of experience designing and building 
 
 ## 🧠 Core Skills
 
-- **Languages**: Python, Java, TypeScript, SQL, Bash
-- **Backend & APIs**: FastAPI, Flask, Django, Spring Boot, REST, WebSockets, Hexagonal Architecture
-- **Cloud & DevOps**: AWS (Lambda, ECS, SQS, SNS, EventBridge), Azure, Docker, Kubernetes, Terraform, GitHub Actions
-- **AI & Data**: LangChain, OpenAI, RAG, ETL Pipelines, Scrapy, Selenium, Spark
-- **Databases**: PostgreSQL, SQL Server, Oracle, MongoDB, Redis, DynamoDB
-- **Messaging**: Kafka, RabbitMQ, AWS SNS/SQS/EventBridge
-- **Monitoring**: ELK Stack, OpenTelemetry, CloudWatch
+- **Backend & APIs**: Python, Java, Spring Boot, FastAPI, Flask, REST, GraphQL  
+- **Frontend**: React JS (Next.js), React Native  
+- **Cloud & Microservices**: AWS, Azure, Kubernetes, Docker, AWS Lambda  
+- **Databases**: PostgreSQL, MySQL, MongoDB, Redis, Teradata  
+- **Messaging**: Kafka, RabbitMQ, IBM MQ, AWS SQS/EventBridge  
+- **Monitoring**: OpenTelemetry, ELK, Distributed Tracing  
+- **CI/CD**: Git, Agile, Azure Pipelines, Unit Testing (Pytest, JUnit)
 
 ---
 
 ## 🏆 Certifications
 
-- **AWS Certified Cloud Practitioner** (2026)
-- **Cybersecurity Essentials** – Cisco (2022)
-- **Java Programming & Software Engineering Fundamentals** – Coursera (2023)
+- **Cybersecurity Essentials** – Cisco (2022)  
+- **Java Programming & Software Engineering Fundamentals** – Coursera (2023)  
+- **Life Skills** – SENA (2022)  
+👉 [View all certificates](https://drive.google.com/drive/folders/1tUp3TgGZhK04J_I_pB1cQLEASoistoR_?usp=drive_link)
 
 ---
 
 ## 🌍 Languages
 
-- **Spanish**: Native
-- **English**: Proficient (C2)
-- **German**: Pre-intermediate (A2)
+- Spanish (Native)  
+- English (Intermediate/Advanced)  
+- German (Beginner A1+)
 
 ---
 
-## 🥋 Hobbies
+## 🧩 Soft Skills
 
-- Traveling | Fitness | Football | **Taekwondo (Black belt)**
-
----
+- High attention to detail
+- Constant learner and self-manager
+- Adaptable to changing environments and technologies
 
 ## 🤝 Let’s Connect
 
-- 📧 [darwinherrera1508@gmail.com](mailto:darwinherrera1508@gmail.com)  
+- 📧 [darwinsherrerac@gmail.com](mailto:darwinsherrerac@gmail.com)  
 - 💼 [LinkedIn](https://www.linkedin.com/in/darwin-herrera)  
 - 💻 [GitHub](https://github.com/darwinhc)
