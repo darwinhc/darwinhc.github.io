@@ -23,7 +23,7 @@ Its core principles are:
 - **AI-Friendly Design**: Since the business logic is isolated and declaratively defined, **translating use cases between languages using AI is simple and feasible**.
 
 See an example project here:  
-👉 [company-data-registry.microservice](https://github.com/darwinhc/bisslog-core-py/tree/feature/init/examples/company-data-registry.microservice)
+👉 [company-data-registry.microservice](https://github.com/darwinhc/company-data-registry.microservice)
 
 ---
 

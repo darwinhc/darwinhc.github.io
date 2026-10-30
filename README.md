@@ -51,7 +51,7 @@ This blog is powered by:
 I'm building in the open — you're welcome to follow the journey, contribute ideas, or use this repo as inspiration for your own blog.
 
 - 🔗 GitHub: [@darwinhc](https://github.com/darwinhc)
-- 📫 Contact: [darwinsherrerac@gmail.com](darwinsherrerac@gmail.com)
+- 📫 Contact: [darwinherrera1508@gmail.com](mailto:darwinherrera1508@gmail.com)
 - 🌱 Core repo: [`bisslog-core-py`](https://github.com/darwinhc/bisslog-core-py)
 
 If you find value in this content, consider starring the repos or sharing them with your team.
