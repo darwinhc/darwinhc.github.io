@@ -28,7 +28,7 @@ const isBisslog = entry.collection === 'bisslog';
       <p class="small muted crumbs">
         <a href={isBisslog ? '/bisslog/' : '/writing/'}>{isBisslog ? 'bisslog' : 'Writing'}</a>
         <span aria-hidden="true"> · </span>
-        <time datetime={entry.data.date.toISOString()}>{formatDay(entry.data.date)}</time>
+        <time class="mono" datetime={entry.data.date.toISOString()}>{formatDay(entry.data.date)}</time>
       </p>
       <h1>{title}</h1>
     </header>
