@@ -8,4 +8,10 @@ export const site = {
   email: 'darwinherrera1508@gmail.com',
   linkedin: 'https://www.linkedin.com/in/darwin-herrera/',
   github: 'https://github.com/darwinhc',
+  /**
+   * GoatCounter site code for privacy-friendly page counts (no cookies).
+   * Empty means no analytics script is loaded. Create the account at
+   * https://www.goatcounter.com with this code, then set it here.
+   */
+  goatcounter: '',
 };

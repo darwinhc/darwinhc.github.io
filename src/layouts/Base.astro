@@ -25,6 +25,21 @@ const {
   backToWork = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/';
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.fullName,
+  alternateName: site.name,
+  jobTitle: site.role,
+  description: site.description,
+  url: Astro.site?.toString(),
+  image: new URL('/assets/img/og.png', Astro.site).toString(),
+  email: `mailto:${site.email}`,
+  sameAs: [site.linkedin, site.github],
+  knowsAbout: ['Python', 'Java', 'AWS', 'Event-driven architecture', 'Hexagonal architecture', 'FastAPI', 'Spring Boot'],
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'National University of Colombia' },
+};
 const ogImage = new URL('/assets/img/og.png', Astro.site);
 ---
 
@@ -50,6 +65,17 @@ const ogImage = new URL('/assets/img/og.png', Astro.site);
     <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="generator" content={Astro.generator} />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
+    {
+      site.goatcounter && (
+        <script
+          is:inline
+          async
+          data-goatcounter={`https://${site.goatcounter}.goatcounter.com/count`}
+          src="//gc.zgo.at/count.js"
+        />
+      )
+    }
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
