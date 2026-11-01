@@ -1,61 +1,38 @@
-# Darwin Herrera Web Site | Senior AI & Backend Engineer | Python, Java, AWS
+# darwinhc.github.io
 
+Source of [darwinhc.github.io](https://darwinhc.github.io), the portfolio of Darwin Herrera, Senior Backend Engineer.
 
+It presents two case studies with their backend architecture, the open-source library bisslog, a CV and articles on backend architecture.
 
+## Stack
 
-Welcome to the source code for my technical blog, published at  
-👉 **[https://darwinhc.github.io](https://darwinhc.github.io)**
+- [Astro](https://astro.build) static site, no client-side framework
+- Content collections for the articles in `src/content`
+- Images optimised at build time with `astro:assets`
+- Self-hosted fonts: Schibsted Grotesk and Fragment Mono
+- Technology logos from [Simple Icons](https://simpleicons.org) and symbols from [Lucide](https://lucide.dev)
+- Deployed to GitHub Pages by `.github/workflows/pages-deploy.yml` on every push to `main`
 
-This blog documents my journey in building **clean, decoupled and sustainable software**, with a strong focus on:
+## Run locally
 
-- ⚙️ Domain-driven design (DDD)
-- 🧩 Hexagonal architecture (Ports and Adapters)
-- 🐍 Python microservices
-- ☁️ Event-driven systems (AWS Lambda, SQS, EventBridge)
-- 🤖 AI-assisted development and code migration
-- 🚀 My open source framework: [`bisslog`](https://github.com/darwinhc/bisslog-core-py)
+```bash
+npm ci
+npm run dev
+```
 
----
+`npm run build` type-checks the project and writes the static site to `dist/`.
 
-## 📌 Featured Project: `bisslog`
+## Structure
 
-<p>
-  <img src="https://raw.githubusercontent.com/darwinhc/bisslog-docs/master/docs/assets/brand/bisslog-logo-imagotipo.png" width="180" />
-</p>
+```text
+src/
+  components/   Header, footer, contact band, architecture diagram, icons
+  content/      Articles (posts and bisslog), Markdown
+  data/         Site details, experience, bisslog packages
+  layouts/      Base page layout
+  pages/        Home, case studies, CV, bisslog, writing, articles
+  styles/       Design tokens and shared styles
+public/         Static files served as they are
+```
 
-`bisslog` is a minimalistic, framework-agnostic library that helps you build microservices where:
-
-- The **business logic is clean and isolated**
-- Infrastructure is **pluggable**
-- Handlers for **Lambda / HTTP / events** can be generated automatically
-- You write once and reuse across Flask, FastAPI, or AWS — without rewriting core logic
-
-Read the intro blog post:  
-👉 [**Building Sustainable Microservices with bisslog**](https://darwinhc.github.io/posts/introducing-bisslog/)
-
----
-
-## 🧰 Tech Stack
-
-This blog is powered by:
-
-- 📝 [Jekyll](https://jekyllrb.com/)
-- 🧩 [Chirpy Theme](https://github.com/cotes2020/jekyll-theme-chirpy)
-- ✍️ Markdown-based posts under `_posts/`
-- 📦 GitHub Pages + GitHub Actions for deployment
-
----
-
-## ✨ Contribute, Follow, or Connect
-
-I'm building in the open — you're welcome to follow the journey, contribute ideas, or use this repo as inspiration for your own blog.
-
-- 🔗 GitHub: [@darwinhc](https://github.com/darwinhc)
-- 📫 Contact: [darwinherrera1508@gmail.com](mailto:darwinherrera1508@gmail.com)
-- 🌱 Core repo: [`bisslog-core-py`](https://github.com/darwinhc/bisslog-core-py)
-
-If you find value in this content, consider starring the repos or sharing them with your team.
-
----
-
-
+Older URLs keep working: articles keep their permalinks, and `/about`, `/categories`, `/tags` and `/archives` redirect to their new places.

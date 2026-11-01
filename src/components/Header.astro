@@ -1,0 +1,106 @@
+---
+interface Props {
+  variant?: 'home' | 'inner';
+}
+const { variant = 'inner' } = Astro.props;
+const path = Astro.url.pathname;
+const links =
+  variant === 'home'
+    ? [
+        { href: '#work', label: 'Work' },
+        { href: '#experience', label: 'Experience' },
+        { href: '#services', label: 'How I help' },
+        { href: '#writing', label: 'Writing' },
+        { href: '#about', label: 'About' },
+        { href: '/cv/', label: 'CV' },
+      ]
+    : [
+        { href: '/#work', label: 'Work' },
+        { href: '/writing/', label: 'Writing' },
+        { href: '/cv/', label: 'CV' },
+      ];
+---
+
+<header class="site-header">
+  <nav aria-label="Main" class="container nav">
+    <a href={variant === 'home' ? '#top' : '/'} class="brand">Darwin Herrera</a>
+    <div class="links">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+      <a href="#contact" class="cta">Get in touch</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    min-height: 72px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 32px;
+  }
+
+  .brand {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 28px;
+    font-size: 15px;
+  }
+
+  .links a {
+    color: var(--text-2);
+    text-decoration: none;
+    padding: 10px 0;
+  }
+
+  .links a:hover,
+  .links a[aria-current='page'] {
+    color: var(--ink);
+  }
+
+  .links .cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .links .cta:hover {
+    color: #fff;
+    background: #27272a;
+  }
+
+  @media (max-width: 560px) {
+    .nav {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .links {
+      gap: 0 20px;
+    }
+  }
+</style>

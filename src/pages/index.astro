@@ -1,0 +1,733 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ArrowIcon from '../components/ArrowIcon.astro';
+import ArticleList from '../components/ArticleList.astro';
+import BisslogDemo from '../components/BisslogDemo.astro';
+import { site } from '../data/site';
+import { experience, certificationsLine } from '../data/experience';
+import { bisslogPackages } from '../data/bisslog';
+import { allArticles } from '../lib/articles';
+
+import tvScoreboard from '../assets/work/tv-scoreboard.png';
+import appTechnical from '../assets/work/app-technical-scoring.png';
+import appPresentation from '../assets/work/app-presentation.png';
+import eventsDesktop from '../assets/work/events-desktop.jpg';
+import eventsPhone from '../assets/work/events-phone.jpg';
+import avatar from '../assets/about/avatar.jpg';
+import graduation from '../assets/about/graduation.jpg';
+import taekwondo from '../assets/about/taekwondo-1st-dan.jpg';
+
+// The five pieces that best show how I think; the full list lives on /writing/.
+const featuredIds = [
+  '2026-06-18-building-a-real-time-event-management-system',
+  '2025-06-06-not-framework-a-mindset',
+  '2025-06-02-introducing-bisslog',
+  '2025-02-14-sustainable-separation-business-logic',
+  '2025-02-14-the-myth-of-lightweight-frameworks',
+];
+const everything = await allArticles();
+const latest = featuredIds
+  .map((id) => everything.find((entry) => entry.id === id))
+  .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+
+const services = [
+  {
+    title: 'Backend services and APIs',
+    text: 'Python (FastAPI, Flask, Django) or Java (Spring Boot), REST and WebSocket APIs, tested and observable from the first release.',
+    proof: 'both',
+  },
+  {
+    title: 'Event-driven systems on AWS',
+    text: 'Lambda, ECS, SQS, SNS and EventBridge, with idempotency, retries and dead-letter queues so nothing is lost or sent twice.',
+    proof: '10,000+ notifications a day for a healthcare platform',
+  },
+  {
+    title: 'Real-time and offline-first applications',
+    text: 'Apps that keep working on unreliable networks and agree with the server the moment they reconnect.',
+    proof: 'tkd',
+  },
+  {
+    title: 'Modernization of legacy platforms',
+    text: 'Moving legacy systems to cloud-native services step by step, without stopping the business that runs on them.',
+    proof: 'About 80% less effort with a reusable migration framework',
+  },
+];
+---
+
+<Base title="Darwin Herrera — Senior Backend Engineer" nav="home">
+  <section id="top" class="container hero">
+    <div class="hero-copy">
+      <h1>I build backend systems that keep working when the business depends on them.</h1>
+      <div class="person">
+        <Image src={avatar} alt="" width={104} height={104} class="avatar" />
+        <div>
+          <p class="person-name">Darwin Herrera</p>
+          <p class="small muted">{site.role} · {site.stackLine}</p>
+        </div>
+      </div>
+      <p class="lede statement">
+        Event-driven services on AWS, real-time and offline-first applications, and migrations of legacy platforms. Six
+        years in production for healthcare, retail, banking and SaaS companies.
+      </p>
+      <p class="small muted open">Open to senior backend roles and to project work with companies anywhere.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={site.linkedin}>Message me on LinkedIn <ArrowIcon /></a>
+        <a class="btn" href={`mailto:${site.email}`}>Email</a>
+        <a class="btn" href={site.github}>GitHub</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <div class="tv">
+        <Image
+          src={tvScoreboard}
+          alt="Live TV scoreboard of a five-judge taekwondo match: each judge's technique and presentation per round, the consolidated values and each athlete's total"
+          widths={[600, 900, 1200]}
+          sizes="(min-width: 1024px) 620px, 100vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption class="small muted">
+        <span><strong>TKD Poomsae Scorer</strong> — the live scoreboard of a five-judge match.</span>
+        <a href="/work/tkd-poomsae-scorer/">Read the case study</a>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="work" class="container work-head" aria-labelledby="work-title">
+    <div>
+      <h2 id="work-title">Selected work</h2>
+      <p class="text-2">
+        Two complete systems, from the problem to a running product, and the open-source library behind my architecture.
+      </p>
+    </div>
+    <a class="small strong-link" href={site.github}>Everything on GitHub</a>
+  </section>
+
+  <section class="band" aria-labelledby="tkd-title">
+    <div class="container project">
+      <div class="project-copy">
+        <h2 id="tkd-title">
+          Taekwondo judges used to score on paper. Now the result is on the TV before the next athlete walks on.
+        </h2>
+        <p class="text-2 intro">
+          Each judge scores accuracy live and presentation after the form. With five or seven judges the highest and
+          lowest are dropped for each part, and athletes perform two forms: up to 56 numbers per match, once collected
+          by hand.
+        </p>
+        <dl class="facts">
+          <div><dt>Offline-first</dt><dd>Every tap is stored on the phone first; a dropped Wi-Fi loses nothing and blocks no one.</dd></div>
+          <div><dt>Exactly once</dt><dd>Idempotent events and a checksum shared by app and server reconcile every judge's card.</dd></div>
+          <div><dt>By the rulebook</dt><dd>3, 5 or 7 judges, trimmed averages per part and the tie-break, tested with full matches.</dd></div>
+        </dl>
+        <div class="link-row">
+          <a class="arrow-link" href="/work/tkd-poomsae-scorer/">Read the case study <ArrowIcon size={14} /></a>
+          <a href="https://github.com/darwinhc/tkd-poomsae-scorer">Source code</a>
+        </div>
+      </div>
+      <div class="phones">
+        <Image
+          src={appTechnical}
+          alt="Judge app: technical scoring screen with large deduction buttons for the red and blue athlete"
+          widths={[220, 412]}
+          sizes="220px"
+          class="phone"
+        />
+        <Image
+          src={appPresentation}
+          alt="Judge app: presentation screen with speed and power, rhythm and tempo, and expression of energy per athlete"
+          widths={[220, 412]}
+          sizes="220px"
+          class="phone offset"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="events-title">
+    <div class="container project project-reverse">
+      <div class="screens">
+        <Image
+          src={eventsDesktop}
+          alt="Realtime Events on a desktop: the event list with dates, places and attendee counts, and the details of the selected event with its attendees"
+          widths={[640, 960, 1280, 1600]}
+          sizes="(min-width: 1024px) 620px, 100vw"
+          class="shot"
+        />
+        <Image
+          src={eventsPhone}
+          alt="Realtime Events on a phone: the same event list, with joined and canceled events marked"
+          widths={[168, 336]}
+          sizes="168px"
+          class="phone small-phone"
+        />
+      </div>
+      <div class="project-copy">
+        <h2 id="events-title">Realtime Events: everyone sees the same event the moment it changes.</h2>
+        <p class="text-2 intro">
+          People create, join, leave and cancel events at the same time. Every open screen updates live, and the state
+          stays consistent no matter who acted first.
+        </p>
+        <dl class="facts">
+          <div><dt>Domain first</dt><dd>Event lifecycle, permissions and joining rules live in a pure domain layer, behind a FastAPI adapter.</dd></div>
+          <div><dt>Live by design</dt><dd>HTTP stays the source of truth; one WebSocket channel notifies clients after each successful change, specified with an AsyncAPI contract.</dd></div>
+          <div><dt>Shipped</dt><dd>Deployed with PostgreSQL and Alembic migrations, 100+ tests above 85% coverage, and a documented path to scale the live channel out.</dd></div>
+        </dl>
+        <div class="link-row">
+          <a class="arrow-link" href="/work/realtime-events/">Read the case study <ArrowIcon size={14} /></a>
+          <a href="https://tt-events-realtime-frontend-react.vercel.app">Try the live demo</a>
+          <a href="https://github.com/darwinhc/tt-events-realtime.service.python">Backend code</a>
+          <a href="https://github.com/darwinhc/tt-events-realtime.frontend.react">Frontend code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-source" class="band" aria-labelledby="bisslog-title">
+    <div class="container bisslog">
+      <div class="project">
+        <div class="project-copy">
+          <h2 id="bisslog-title">bisslog: the use case stays, everything around it changes.</h2>
+          <p class="text-2 intro">
+            My open-source library for hexagonal architecture in Python. Business rules live in plain use cases;
+            Flask, FastAPI, AWS Lambda, MongoDB or RabbitMQ plug in as adapters, so changing a framework or a database
+            does not mean rewriting the business.
+          </p>
+          <p class="text-2 intro">
+            The same separation runs through both projects above. bisslog packages it, with handlers generated from
+            metadata, as seven libraries on PyPI.
+          </p>
+          <div class="link-row">
+            <a class="arrow-link" href="/bisslog/">How bisslog works <ArrowIcon size={14} /></a>
+            <a href="https://github.com/darwinhc/bisslog-core-py">Source code</a>
+            <a href="https://pypi.org/project/bisslog/">PyPI</a>
+          </div>
+        </div>
+        <BisslogDemo />
+      </div>
+      <ul class="packages" aria-label="bisslog packages">
+        {
+          bisslogPackages.map((pkg) => (
+            <li>
+              <a class="mono" href={pkg.href}>{pkg.name}</a>
+              <span>{pkg.text}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience" class="container experience" aria-labelledby="experience-title">
+    <h2 id="experience-title">Experience</h2>
+    <p class="text-2 section-intro">
+      Six years building backend systems in production, most of them on AWS and in event-driven architectures.
+    </p>
+    <div class="roles">
+      {
+        experience.map((role) => (
+          <article class="role">
+            <p class="mono when">{role.years}</p>
+            <div class="role-body">
+              <h3>
+                {role.title} · {role.company}
+              </h3>
+              <p class="small muted">{role.context}</p>
+              <ul>
+                {role.highlights.map((item) => (
+                  <li set:html={item} />
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+    <p class="small muted certs">{certificationsLine}</p>
+  </section>
+
+  <section id="services" class="band-dark" aria-labelledby="services-title">
+    <div class="container services">
+      <div class="services-head">
+        <h2 id="services-title">What I can build for your team</h2>
+        <p>As a member of your engineering team or as a project with a clear scope and a working system at the end.</p>
+      </div>
+      <div class="service-grid">
+        {
+          services.map((service) => (
+            <div class="service">
+              <h3>{service.title}</h3>
+              <p class="service-text">{service.text}</p>
+              <p class="small proof">
+                {service.proof === 'both' ? (
+                  <>
+                    Shown in <a href="/work/realtime-events/">Realtime Events</a> and{' '}
+                    <a href="/work/tkd-poomsae-scorer/">TKD Poomsae Scorer</a>
+                  </>
+                ) : service.proof === 'tkd' ? (
+                  <>
+                    Shown in <a href="/work/tkd-poomsae-scorer/">TKD Poomsae Scorer</a>
+                  </>
+                ) : (
+                  service.proof
+                )}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container about" aria-labelledby="about-title">
+    <h2 id="about-title">Outside the code</h2>
+    <div class="about-grid">
+      <article>
+        <Image
+          src={graduation}
+          alt="Darwin Herrera holding his engineering diploma in front of the Facultad de Minas building"
+          widths={[420, 640, 790]}
+          sizes="(min-width: 1024px) 580px, 100vw"
+          class="photo grad"
+        />
+        <h3>Systems and Computer Engineer</h3>
+        <p class="text-2">
+          I graduated from the National University of Colombia in 2024, already working as a backend engineer.
+          Graduation day at the Facultad de Minas.
+        </p>
+      </article>
+      <article>
+        <Image
+          src={taekwondo}
+          alt="Darwin Herrera in his black belt and dobok, holding his 1st Dan certificate next to the banner of the National University of Colombia taekwondo club"
+          widths={[420, 640, 790]}
+          sizes="(min-width: 1024px) 580px, 100vw"
+          class="photo tkd"
+        />
+        <h3>Taekwondo black belt, 1st Dan</h3>
+        <p class="text-2">
+          Certified at the National University of Colombia taekwondo club, where I spent two years as an assistant
+          instructor. The same sport is behind <a href="/work/tkd-poomsae-scorer/">TKD Poomsae Scorer</a>. I also
+          practise public speaking with Toastmasters.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="writing" class="container writing" aria-labelledby="writing-title">
+    <div class="writing-head">
+      <h2 id="writing-title">Writing</h2>
+      <a class="small strong-link" href="/writing/">All posts</a>
+    </div>
+    <ArticleList articles={latest} />
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-top: 88px;
+    padding-bottom: 96px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    flex: 1 1 400px;
+    min-width: 0;
+    max-width: 520px;
+  }
+
+  .person {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.35;
+  }
+
+  .person :global(.avatar) {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .person-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .statement {
+    margin-top: 28px;
+  }
+
+  .open {
+    margin-top: 20px;
+  }
+
+  .cta-row {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero-figure {
+    flex: 1 1 520px;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .tv {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #0f172a;
+    box-shadow: var(--shadow);
+  }
+
+  .tv :global(img) {
+    width: 100%;
+  }
+
+  .hero-figure figcaption {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+  }
+
+  .hero-figure strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hero-figure a,
+  .strong-link {
+    font-weight: 500;
+  }
+
+  .work-head {
+    padding-top: 112px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px 48px;
+  }
+
+  .work-head > div {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+
+  .work-head p {
+    margin-top: 12px;
+    max-width: 60ch;
+  }
+
+  .project {
+    padding-top: 88px;
+    padding-bottom: 88px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .project-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  section[aria-labelledby='events-title'] {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-copy {
+    flex: 1 1 420px;
+    min-width: 0;
+    max-width: 520px;
+  }
+
+  .intro {
+    margin-top: 20px;
+  }
+
+  .project-copy .facts {
+    margin-top: 32px;
+  }
+
+  .project-copy .link-row {
+    margin-top: 28px;
+  }
+
+  .phones {
+    flex: 1 1 440px;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .phones :global(.phone) {
+    width: min(220px, calc(50% - 14px));
+  }
+
+  .phones :global(.offset) {
+    margin-top: clamp(24px, 4vw, 48px);
+  }
+
+  .screens {
+    flex: 1 1 520px;
+    min-width: 0;
+    position: relative;
+    padding: 0 clamp(40px, 6vw, 72px) clamp(40px, 6vw, 64px) 0;
+  }
+
+  .screens :global(.shot) {
+    width: 100%;
+  }
+
+  .screens :global(.small-phone) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: clamp(96px, 22%, 168px);
+    border-radius: 18px;
+    border-width: 5px;
+  }
+
+  .bisslog {
+    padding-bottom: 88px;
+  }
+
+  .bisslog .project {
+    padding-bottom: 56px;
+  }
+
+  .packages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    column-gap: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .packages li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .packages a {
+    font-size: 15px;
+  }
+
+  .packages span {
+    display: block;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .experience {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .section-intro {
+    margin-top: 12px;
+    max-width: 62ch;
+  }
+
+  .roles {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .role {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 40px;
+    padding: 32px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .when {
+    flex: 0 0 160px;
+    padding-top: 3px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .role-body {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+
+  .role h3 {
+    font-size: 19px;
+  }
+
+  .role .small {
+    margin-top: 2px;
+  }
+
+  .role ul {
+    margin: 14px 0 0;
+    padding-left: 18px;
+    max-width: 66ch;
+    color: var(--text-2);
+  }
+
+  .role :global(strong) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .certs {
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .services {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .services-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 64px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .services-head h2 {
+    max-width: 640px;
+    font-size: clamp(30px, 1.4vw + 20px, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .services-head p {
+    max-width: 420px;
+    color: var(--dark-muted);
+  }
+
+  .service-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    column-gap: 64px;
+    border-top: 1px solid var(--dark-line);
+  }
+
+  .service {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--dark-line);
+  }
+
+  .service h3 {
+    font-size: 21px;
+  }
+
+  .service-text {
+    margin-top: 10px;
+  }
+
+  .proof {
+    margin-top: 12px;
+    color: var(--dark-muted);
+  }
+
+  .about {
+    padding-top: 112px;
+    padding-bottom: 56px;
+  }
+
+  .about-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: 48px 40px;
+  }
+
+  .about :global(.photo) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .about :global(.grad) {
+    object-position: center 40%;
+  }
+
+  .about :global(.tkd) {
+    object-position: center 60%;
+  }
+
+  .about h3 {
+    margin-top: 24px;
+    font-size: 21px;
+    letter-spacing: -0.015em;
+  }
+
+  .about h3 + p {
+    margin-top: 8px;
+    max-width: 52ch;
+  }
+
+  .writing {
+    padding-top: 56px;
+    padding-bottom: 112px;
+  }
+
+  .writing-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px 32px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding-top: 56px;
+      padding-bottom: 72px;
+      gap: 48px;
+    }
+
+    .work-head {
+      padding-top: 80px;
+    }
+
+    .project {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .experience,
+    .services {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .role {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .certs {
+      padding: 0;
+    }
+  }
+</style>

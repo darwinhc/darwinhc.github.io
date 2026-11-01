@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Architecture from '../../components/Architecture.astro';
+import '../../styles/case.css';
+
+import eventsDesktop from '../../assets/work/events-desktop.jpg';
+import eventsPhone from '../../assets/work/events-phone.jpg';
+---
+
+<Base
+  title="Realtime Events — case study · Darwin Herrera"
+  description="Real-time event management where every open screen updates live while the database stays the single source of truth: a domain-first FastAPI service with WebSocket notifications and a React client."
+  ogType="article"
+  contactTitle="Need live features that stay consistent?"
+  contactText="Tell me on LinkedIn what you are building. I answer every message."
+  backToWork
+>
+  <section class="container case-hero">
+    <h1>Keeping every screen in sync while people change the same events</h1>
+    <p class="lede text-2">
+      Realtime Events lets people create, join, leave, cancel and restore events while every open screen updates live,
+      with the database as the single source of truth.
+    </p>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Sole engineer, backend and frontend</dd></div>
+      <div><dt>Stack</dt><dd>FastAPI, SQLAlchemy, PostgreSQL, React, TypeScript</dd></div>
+      <div>
+        <dt>Live demo</dt>
+        <dd><a href="https://tt-events-realtime-frontend-react.vercel.app">tt-events-realtime-frontend-react.vercel.app</a></dd>
+      </div>
+      <div>
+        <dt>Source</dt>
+        <dd>
+          <a href="https://github.com/darwinhc/tt-events-realtime.service.python">Backend</a> ·
+          <a href="https://github.com/darwinhc/tt-events-realtime.frontend.react">Frontend</a>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <figure class="container case-figure">
+    <Image
+      src={eventsDesktop}
+      alt="Realtime Events on a desktop: the event list with dates, places and attendee counts, and the selected event with its attendees"
+      widths={[640, 960, 1200, 1600]}
+      sizes="(min-width: 1264px) 1200px, 100vw"
+      class="shot"
+      style="width: 100%"
+    />
+    <figcaption class="small muted">
+      The event list and the selected event, with demo data. A canceled event stays visible and can be restored by its
+      organizer.
+    </figcaption>
+  </figure>
+
+  <article class="container split case-section flush-top">
+    <h2 class="split-title">The problem</h2>
+    <div class="split-body text-2">
+      <p>
+        Several people act on the same events at the same time: one edits, another joins, the organizer cancels. Every
+        open screen has to show the current state without a refresh, and no screen may show something the database does
+        not hold.
+      </p>
+      <p>
+        The usual shortcut, pushing state over the socket and treating it as the truth, breaks the moment a message is
+        lost or arrives out of order.
+      </p>
+    </div>
+  </article>
+
+  <section class="band">
+    <div class="container split case-section">
+      <h2 class="split-title">How it works</h2>
+      <div class="split-body text-2">
+        <h3>The rules live in the domain</h3>
+        <p>
+          Event lifecycle, organizer permissions and joining rules sit in a pure domain layer. FastAPI only parses
+          requests and calls use cases, so the rules are tested without a server.
+        </p>
+        <h3>HTTP is the source of truth</h3>
+        <p>
+          Every change goes through the REST API and is committed first. Only then does one WebSocket channel notify
+          every open client, which maps the notification into its own state. A notification a client cannot read makes
+          it reload from the API.
+        </p>
+        <h3>A written contract for the live channel</h3>
+        <p>
+          The WebSocket messages are specified in an AsyncAPI 3.1 document, so the frontend and any other client build
+          against the same contract.
+        </p>
+        <h3>Honest about scale</h3>
+        <p>
+          The live channel runs inside one service instance. The documentation names the next step to scale it out, a
+          shared broker such as Redis Pub/Sub or PostgreSQL LISTEN/NOTIFY, instead of pretending the limit is not there.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container case-section case-arch" aria-labelledby="arch-title">
+    <div class="split">
+      <h2 id="arch-title" class="split-title">Architecture</h2>
+      <p class="split-body text-2">
+        Ports and adapters. FastAPI is only the entry point; use cases work over the domain, and persistence, the live
+        channel and migrations are adapters. SQLite runs locally and PostgreSQL in production.
+      </p>
+    </div>
+    <Architecture
+      summary="Realtime Events architecture: the React app and every other open client call the FastAPI service over REST and receive WebSocket notifications after each commit. Use cases work over a domain of event lifecycle, organizer permissions and joining rules. Adapters implement the ports with PostgreSQL through SQLAlchemy, a realtime publisher and Alembic migrations."
+      clients={[
+        { icon: 'si:react', title: 'React app', detail: 'TypeScript · Vite · on Vercel' },
+        { icon: 'lucide:users', title: 'Every other open client', detail: 'Same event list, live' },
+      ]}
+      clientLink="REST in, WebSocket notification out after each commit"
+      twoWay
+      entry={{ icon: 'si:fastapi', title: 'FastAPI', detail: 'REST /events, /joiners · WebSocket /ws/events' }}
+      useCases={['Create', 'Update', 'Cancel and restore', 'Join', 'Leave']}
+      domain={['Event lifecycle', 'Organizer permissions', 'Joining rules']}
+      adapters={[
+        { icon: 'si:postgresql', title: 'PostgreSQL', detail: 'SQLAlchemy repositories · Supabase in production' },
+        { icon: 'lucide:radio-tower', title: 'Realtime publisher', detail: 'Notifies clients after each commit' },
+        { icon: 'lucide:history', title: 'Alembic migrations', detail: 'Versioned schema changes' },
+      ]}
+      adapterLink="Through ports the core defines"
+    />
+  </section>
+
+  <section class="case-dark" aria-labelledby="phone-title">
+    <div class="container inner">
+      <div class="copy">
+        <h2 id="phone-title">The same events on a phone</h2>
+        <p>
+          A split list and detail view on desktop becomes one list on a phone. Joined and canceled events are marked,
+          and the interface switches between English and German.
+        </p>
+      </div>
+      <div class="media">
+        <Image
+          src={eventsPhone}
+          alt="Realtime Events on a phone: the event list with joined and canceled events marked"
+          widths={[260, 520]}
+          sizes="260px"
+          class="phone"
+          style="width: min(260px, 70%); border-radius: 24px"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="container split case-section">
+    <h2 class="split-title">Result</h2>
+    <div class="split-body text-2">
+      <p>
+        The service runs in production with a public demo: the frontend on Vercel, the API on Render and PostgreSQL
+        behind Alembic migrations.
+      </p>
+      <p>
+        The backend has <strong>100+ automated tests with coverage above 85%</strong>, enforced in CI, and the frontend
+        keeps UI components apart from API and WebSocket logic, with its own unit tests.
+      </p>
+      <p class="tech-line">
+        Python · FastAPI · SQLAlchemy · Alembic · PostgreSQL · WebSockets · AsyncAPI · React · TypeScript · Vite ·
+        Tailwind
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,410 @@
+---
+/**
+ * Hexagonal architecture diagram, drawn in HTML so it stays readable on any
+ * screen: callers on the left, the entry adapter, the application core as a
+ * hexagon (use cases around the domain) and the driven adapters on the right.
+ * On narrow screens the same columns stack from top to bottom.
+ */
+import Icon from './Icon.astro';
+
+interface Node {
+  icon: string;
+  title: string;
+  detail?: string;
+}
+
+interface Props {
+  /** Accessible summary of the whole diagram. */
+  summary: string;
+  clients: Node[];
+  /** Label on the arrow between the callers and the entry point. */
+  clientLink: string;
+  /** Draw the caller arrow in both directions (requests in, notifications out). */
+  twoWay?: boolean;
+  entry: Node;
+  useCases: string[];
+  domain: string[];
+  adapters: Node[];
+  adapterLink: string;
+}
+
+const { summary, clients, clientLink, twoWay = false, entry, useCases, domain, adapters, adapterLink } =
+  Astro.props;
+---
+
+<figure class="arch" aria-label={summary}>
+  <div class="arch-grid">
+    <div class="col">
+      <p class="label">Clients</p>
+      <ul class="stack clients">
+        {
+          clients.map((node) => (
+            <li class="node">
+              <Icon name={node.icon} size={22} />
+              <span>
+                <strong>{node.title}</strong>
+                {node.detail && <span class="detail">{node.detail}</span>}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="link">
+      <span class="label" aria-hidden="true">&nbsp;</span>
+      <div class="link-body">
+        <svg class="h" viewBox="0 0 64 12" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 6h60" />
+          <path d="M56 1l6 5-6 5" />
+          {twoWay && <path d="M8 1L2 6l6 5" />}
+        </svg>
+        <svg class="v" viewBox="0 0 12 40" aria-hidden="true">
+          <path d="M6 2v36" />
+          <path d="M1 32l5 6 5-6" />
+          {twoWay && <path d="M1 8l5-6 5 6" />}
+        </svg>
+        <span class="link-text">{clientLink}</span>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="label">Entry point</p>
+      <div class="stack">
+        <div class="node node-entry">
+          <Icon name={entry.icon} size={26} />
+          <span>
+            <strong>{entry.title}</strong>
+            {entry.detail && <span class="detail">{entry.detail}</span>}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="link">
+      <span class="label" aria-hidden="true">&nbsp;</span>
+      <div class="link-body">
+        <svg class="h" viewBox="0 0 64 12" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 6h60" />
+          <path d="M56 1l6 5-6 5" />
+        </svg>
+        <svg class="v" viewBox="0 0 12 40" aria-hidden="true">
+          <path d="M6 2v36" />
+          <path d="M1 32l5 6 5-6" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="col col-core">
+      <p class="label">Application core</p>
+      <div class="core-body">
+      <div class="hex">
+        <svg class="hex-shape" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="11,0.5 89,0.5 99.5,50 89,99.5 11,99.5 0.5,50" />
+        </svg>
+        <div class="hex-body">
+          <p class="hex-title">Use cases</p>
+          <ul class="chips">
+            {useCases.map((item) => <li>{item}</li>)}
+          </ul>
+          <div class="domain">
+            <p class="hex-title">Domain</p>
+            <p class="domain-items">{domain.join(' · ')}</p>
+            <p class="domain-note">No framework code</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="link">
+      <span class="label" aria-hidden="true">&nbsp;</span>
+      <div class="link-body">
+        <svg class="h" viewBox="0 0 64 12" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 6h60" />
+          <path d="M56 1l6 5-6 5" />
+        </svg>
+        <svg class="v" viewBox="0 0 12 40" aria-hidden="true">
+          <path d="M6 2v36" />
+          <path d="M1 32l5 6 5-6" />
+        </svg>
+        <span class="link-text">{adapterLink}</span>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="label">Adapters</p>
+      <ul class="stack">
+        {
+          adapters.map((node) => (
+            <li class="node">
+              <Icon name={node.icon} size={22} />
+              <span>
+                <strong>{node.title}</strong>
+                {node.detail && <span class="detail">{node.detail}</span>}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .arch {
+    margin: 0;
+    padding: clamp(20px, 3vw, 40px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfcfd;
+  }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr) 40px minmax(0, 1.75fr) 96px minmax(0, 1.25fr);
+    align-items: stretch;
+  }
+
+  .col,
+  .link {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .label {
+    margin: 0 0 14px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--muted);
+  }
+
+  .stack,
+  .link-body,
+  .core-body {
+    flex: 1;
+  }
+
+  .core-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stack {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .node strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .detail {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .node-entry {
+    border-color: var(--line-strong);
+  }
+
+  .link-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 6px;
+    color: var(--ink);
+  }
+
+  .link-body svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    overflow: visible;
+  }
+
+  .link-body .h {
+    width: 100%;
+    height: 12px;
+  }
+
+  .link-body .h path {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .link-body .v {
+    display: none;
+    width: 12px;
+    height: 40px;
+  }
+
+  .link-text {
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .hex {
+    position: relative;
+    display: flex;
+  }
+
+  .hex-shape {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: var(--subtle);
+    stroke: var(--line-strong);
+    stroke-width: 1;
+  }
+
+  .hex-shape polygon {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .hex-body {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 12%;
+    text-align: center;
+  }
+
+  .hex-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .chips {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .chips li {
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text-2);
+  }
+
+  .domain {
+    margin: 18px auto 0;
+    max-width: 340px;
+    padding: 16px 20px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: var(--accent-soft);
+  }
+
+  .domain .hex-title {
+    color: var(--accent);
+  }
+
+  .domain-items {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .domain-note {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 1023px) {
+    .arch-grid {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: stretch;
+    }
+
+    .label {
+      margin-bottom: 10px;
+    }
+
+    .link .label {
+      display: none;
+    }
+
+    .link-body {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 14px;
+      padding: 10px 0 10px clamp(16px, 8vw, 48px);
+    }
+
+    .link-body .h {
+      display: none;
+    }
+
+    .link-body .v {
+      display: block;
+    }
+
+    .link-text {
+      text-align: left;
+    }
+
+    .clients {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    }
+
+    .hex-body {
+      padding: 32px 14%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hex-body {
+      padding: 28px 10%;
+    }
+
+    .domain {
+      border-radius: 20px;
+    }
+  }
+</style>

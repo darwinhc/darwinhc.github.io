@@ -1,0 +1,53 @@
+---
+/**
+ * One icon from Simple Icons (technology logos, prefix "si:") or Lucide
+ * (generic symbols, prefix "lucide:"). Always decorative: the visible label
+ * next to it carries the meaning.
+ */
+import * as simple from 'simple-icons';
+import * as lucide from 'lucide-static';
+
+interface Props {
+  name: string;
+  size?: number;
+  /** Simple Icons only: "brand" uses the logo colour, anything else is a CSS colour. */
+  color?: string;
+  class?: string;
+}
+
+const { name, size = 24, color = 'brand', class: className } = Astro.props;
+const [set, id] = name.split(':');
+
+let svg = '';
+if (set === 'si') {
+  const key = 'si' + id.charAt(0).toUpperCase() + id.slice(1);
+  const icon = (simple as Record<string, { path: string; hex: string } | undefined>)[key];
+  if (!icon) throw new Error(`Unknown Simple Icons logo: ${id}`);
+  const fill = color === 'brand' ? `#${icon.hex}` : color;
+  svg = `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="${fill}" aria-hidden="true" focusable="false"><path d="${icon.path}"/></svg>`;
+} else if (set === 'lucide') {
+  const key = id
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+  const raw = (lucide as Record<string, string | undefined>)[key];
+  if (!raw) throw new Error(`Unknown Lucide icon: ${id}`);
+  svg = raw
+    .replace(/class="[^"]*"/, 'aria-hidden="true" focusable="false"')
+    .replace(/width="24"/, `width="${size}"`)
+    .replace(/height="24"/, `height="${size}"`)
+    .replace(/stroke-width="2"/, 'stroke-width="1.75"');
+} else {
+  throw new Error(`Unknown icon set in "${name}"`);
+}
+---
+
+<span class:list={['icon', className]} set:html={svg} />
+
+<style>
+  .icon {
+    display: inline-flex;
+    flex: none;
+    line-height: 0;
+  }
+</style>

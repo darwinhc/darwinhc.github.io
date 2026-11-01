@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import ArticleList from '../components/ArticleList.astro';
+import { allArticles } from '../lib/articles';
+
+const articles = await allArticles();
+---
+
+<Base
+  title="Writing · Darwin Herrera"
+  description="Articles by Darwin Herrera on backend architecture, hexagonal design, real-time systems and the bisslog library."
+>
+  <section class="container writing">
+    <h1>Writing</h1>
+    <p class="lede text-2">
+      Notes on backend architecture: keeping business rules apart from frameworks, real-time systems, and the bisslog
+      library.
+    </p>
+    <ArticleList articles={articles} />
+  </section>
+</Base>
+
+<style>
+  .writing {
+    padding-top: 88px;
+    padding-bottom: 112px;
+  }
+
+  .lede {
+    margin: 20px 0 48px;
+    max-width: 60ch;
+  }
+</style>

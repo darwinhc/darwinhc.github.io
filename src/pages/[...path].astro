@@ -1,0 +1,62 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { allArticles, articlePath, articleTitle, formatDay, type Article } from '../lib/articles';
+import '../styles/prose.css';
+
+export async function getStaticPaths() {
+  const articles = await allArticles();
+  return articles.map((entry) => ({
+    params: { path: articlePath(entry).replace(/^\/|\/$/g, '') },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: Article;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const title = articleTitle(entry);
+const isBisslog = entry.collection === 'bisslog';
+---
+
+<Base title={`${title} · Darwin Herrera`} description={entry.data.description} ogType="article">
+  <article class="container article">
+    <header class="article-head">
+      <p class="small muted crumbs">
+        <a href={isBisslog ? '/bisslog/' : '/writing/'}>{isBisslog ? 'bisslog' : 'Writing'}</a>
+        <span aria-hidden="true"> · </span>
+        <time datetime={entry.data.date.toISOString()}>{formatDay(entry.data.date)}</time>
+      </p>
+      <h1>{title}</h1>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article {
+    max-width: calc(760px + 2 * var(--gutter));
+    padding-top: 72px;
+    padding-bottom: 104px;
+  }
+
+  .article-head {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .crumbs {
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 1.8vw + 22px, 46px);
+    line-height: 1.1;
+  }
+</style>

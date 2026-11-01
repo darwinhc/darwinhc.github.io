@@ -1,0 +1,117 @@
+/* Long-form text from Markdown posts. */
+.prose {
+  max-width: 70ch;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  margin-top: 2.2em;
+  font-size: 28px;
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+  font-size: 21px;
+  letter-spacing: -0.015em;
+}
+
+.prose h4 {
+  margin-top: 1.6em;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + * {
+  margin-top: 0.6em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+}
+
+.prose li + li {
+  margin-top: 0.35em;
+}
+
+.prose strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 2px 0 2px 20px;
+  border-left: 3px solid var(--line-strong);
+  color: var(--text-2);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.4em 0;
+}
+
+.prose img {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.prose p > img:only-child {
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+}
+
+.prose :not(pre) > code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--subtle);
+  border: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.prose pre {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.prose table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.prose th,
+.prose td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  color: var(--ink);
+  font-weight: 600;
+}

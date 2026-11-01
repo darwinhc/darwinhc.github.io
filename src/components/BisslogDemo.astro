@@ -1,0 +1,46 @@
+---
+/** The bisslog animation: one use case, many entry points and adapters. */
+---
+
+<figure class="demo">
+  <div class="frame">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="/assets/img/bisslog-animation-still.png" />
+      <img
+        src="/assets/img/bisslog-animation.gif"
+        width="512"
+        height="265"
+        alt="Animation: a use case in the centre stays the same while the entry point changes from Flask to AWS Lambda, FastAPI, Axum, Express and NestJS, and the adapters change from RabbitMQ and MongoDB to Kafka and SQL Server."
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <figcaption class="small muted">
+    Frame by frame, the entry point, the adapters and even the language change. The use case in the middle does not.
+  </figcaption>
+</figure>
+
+<style>
+  .demo {
+    flex: 1 1 520px;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .frame {
+    padding: clamp(12px, 2vw, 24px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    margin-top: 14px;
+    max-width: 60ch;
+  }
+</style>

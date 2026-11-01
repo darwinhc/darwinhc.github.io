@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Architecture from '../../components/Architecture.astro';
+import '../../styles/case.css';
+
+import tvScoreboard from '../../assets/work/tv-scoreboard.png';
+import appTechnical from '../../assets/work/app-technical-scoring.png';
+import appPresentation from '../../assets/work/app-presentation.png';
+---
+
+<Base
+  title="TKD Poomsae Scorer — case study · Darwin Herrera"
+  description="An offline-first scoring system for taekwondo competitions: judges score from their phones, a local server applies the official rules and the venue's TV shows the result within seconds."
+  ogType="article"
+  contactTitle="Need a system that keeps working when the network does not?"
+  contactText="Tell me on LinkedIn what you are building. I answer every message."
+  backToWork
+>
+  <section class="container case-hero">
+    <h1>Scoring taekwondo competitions without stopping them</h1>
+    <p class="lede text-2">
+      TKD Poomsae Scorer lets three to seven judges score from their phones while a local server applies the official
+      consolidation rules, and puts the result on the venue's TV within seconds. It runs without internet.
+    </p>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Sole engineer, from requirements to a working system</dd></div>
+      <div><dt>Built for</dt><dd>A regional taekwondo organization</dd></div>
+      <div><dt>Stack</dt><dd>FastAPI, SQLite, React Native (Expo), WebSockets</dd></div>
+      <div>
+        <dt>Source</dt>
+        <dd><a href="https://github.com/darwinhc/tkd-poomsae-scorer">github.com/darwinhc/tkd-poomsae-scorer</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <figure class="container case-figure">
+    <Image
+      src={tvScoreboard}
+      alt="Live TV scoreboard of a five-judge match: each judge's technique and presentation per round, the consolidated values, each athlete's total and the winner"
+      widths={[640, 960, 1200]}
+      sizes="(min-width: 1264px) 1200px, 100vw"
+      class="shot"
+      style="width: 100%; background: #0f172a"
+    />
+    <figcaption class="small muted">
+      The scoreboard on the venue's TV: every judge's technique (TEC) and presentation (PRES), the consolidated value
+      after dropping the highest and lowest, each poomsae score and the total.
+    </figcaption>
+  </figure>
+
+  <article class="container split case-section flush-top">
+    <h2 class="split-title">The problem</h2>
+    <div class="split-body text-2">
+      <p>
+        In poomsae, each judge scores <strong>accuracy live</strong>, deducting 0.1 for a minor mistake and 0.3 for a
+        serious one, and <strong>presentation after the form</strong> on three criteria. With five or seven judges the
+        highest and lowest scores are dropped, separately for each part, and athletes perform two forms.
+      </p>
+      <p>
+        One head-to-head match produces up to 56 numbers to collect, trim and average. On paper, the competition stopped
+        after every athlete, a miscopied number could change a winner, and the audience waited without seeing anything.
+      </p>
+    </div>
+  </article>
+
+  <section class="band">
+    <div class="container split case-section">
+      <h2 class="split-title">What it had to survive</h2>
+      <dl class="facts split-body">
+        <div><dt>No internet at the venue</dt><dd>Phones, admin panel and TV all run on a closed local network; every asset ships with the server.</dd></div>
+        <div><dt>Unreliable Wi-Fi</dt><dd>A phone that drops off must never lose a score or sign the other judges out.</dd></div>
+        <div><dt>Exact rules</dt><dd>Three, five or seven judges, trimming per part, two decimals and the official tie-break.</dd></div>
+        <div><dt>Operators who are not engineers</dt><dd>One executable to start, a QR code and a PIN per area, large buttons on low-end phones.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="container split case-section">
+    <h2 class="split-title">How it works</h2>
+    <div class="split-body text-2">
+      <h3>The phone never waits for the server</h3>
+      <p>
+        Every tap is written to SQLite on the phone before any network call. A sync engine sends events in the
+        background, retries with exponential backoff and jitter, and tells final errors apart from temporary ones.
+      </p>
+      <h3>Every score arrives exactly once</h3>
+      <p>
+        Score events are idempotent, sequenced per judge and reconciled at the end with a SHA-256 checksum that the app
+        and the server build from the same canonical payload, pinned by a shared test vector.
+      </p>
+      <h3>One scorecard per judge</h3>
+      <p>
+        The server keeps a scorecard for each judge and consolidates accuracy and presentation separately, as the
+        rulebook says. A judge who is removed stops counting, and one who changes phones keeps a single scorecard.
+      </p>
+      <h3>Rules in a pure domain layer</h3>
+      <p>
+        The backend follows a hexagonal architecture: scoring rules have no framework code, so every rule, including
+        the worked examples from the rulebook, is covered by fast unit tests.
+      </p>
+    </div>
+  </section>
+
+  <section class="container case-section flush-top case-arch" aria-labelledby="arch-title">
+    <div class="split">
+      <h2 id="arch-title" class="split-title">Architecture</h2>
+      <p class="split-body text-2">
+        Ports and adapters on the server. The scoring rules sit in a domain with no framework code, use cases
+        orchestrate them, and the database, the live channel and the security services plug in as adapters.
+      </p>
+    </div>
+    <Architecture
+      summary="TKD Poomsae Scorer architecture: judge phones, the admin panel and the TV call a FastAPI server on the local network. Its use cases work over a domain of judge scorecards, consolidation for 3, 5 or 7 judges, tie-break and checksum. Adapters implement the ports with SQLite through SQLAlchemy, a WebSocket hub, JWT tokens and encrypted station credentials."
+      clients={[
+        { icon: 'lucide:smartphone', title: 'Judge app ×3–7', detail: 'Android · offline-first' },
+        { icon: 'lucide:app-window', title: 'Admin panel', detail: 'Browser on the LAN' },
+        { icon: 'lucide:tv', title: 'TV scoreboard', detail: 'Browser on the venue TV' },
+      ]}
+      clientLink="Score events in, live updates out"
+      twoWay
+      entry={{ icon: 'si:fastapi', title: 'FastAPI', detail: 'REST · WebSocket · admin and TV pages' }}
+      useCases={['Connect station', 'Ingest score event', 'Finalize per judge', 'Start and close match']}
+      domain={['Judge scorecards', 'Consolidation for 3, 5 or 7 judges', 'Tie-break', 'Checksum']}
+      adapters={[
+        { icon: 'si:sqlite', title: 'SQLite', detail: 'Through SQLAlchemy repositories' },
+        { icon: 'lucide:radio-tower', title: 'WebSocket hub', detail: 'Pushes each change to the TV and panel' },
+        { icon: 'si:jsonwebtokens', title: 'JWT tokens', detail: 'One session per judge station' },
+        { icon: 'lucide:lock', title: 'Encrypted credentials', detail: 'Station PINs stored with Fernet' },
+      ]}
+      adapterLink="Through ports the core defines"
+    />
+  </section>
+
+  <section class="case-dark" aria-labelledby="phone-title">
+    <div class="container inner">
+      <div class="copy">
+        <h2 id="phone-title">The judge's phone</h2>
+        <p>
+          Accuracy is tapped during the form with large −0.1 and −0.3 buttons; presentation is set afterwards with the
+          three criteria. The interface follows the phone's language, English or Spanish.
+        </p>
+      </div>
+      <div class="media">
+        <Image
+          src={appTechnical}
+          alt="Technical scoring screen with deduction buttons for the red and blue athlete"
+          widths={[240, 412]}
+          sizes="240px"
+          class="phone"
+          style="width: min(240px, calc(50% - 12px))"
+        />
+        <Image
+          src={appPresentation}
+          alt="Presentation screen with speed and power, rhythm and tempo, and expression of energy for each athlete"
+          widths={[240, 412]}
+          sizes="240px"
+          class="phone"
+          style="width: min(240px, calc(50% - 12px))"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="container split case-section">
+    <h2 class="split-title">Result</h2>
+    <div class="split-body text-2">
+      <p>
+        Judges submit from their phones, so nothing has to be collected between athletes, and the TV shows each judge's
+        scores and the consolidated result as soon as they finish.
+      </p>
+      <p>
+        The complete flow was verified end to end against a running server with three- and five-judge matches,
+        including a judge removed in the middle of a match. <strong>160 backend tests and 83 app tests</strong> run in
+        CI with linting and type checks.
+      </p>
+      <p class="tech-line">
+        Python · FastAPI · SQLAlchemy · SQLite · React Native · Expo · TypeScript · Zustand · WebSockets · PyInstaller
+      </p>
+    </div>
+  </section>
+</Base>

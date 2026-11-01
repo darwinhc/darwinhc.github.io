@@ -1,0 +1,214 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BisslogDemo from '../../components/BisslogDemo.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import { bisslogPackages } from '../../data/bisslog';
+import type { Article } from '../../lib/articles';
+
+const bisslogArticles = await getCollection('bisslog');
+const theory = (
+  await Promise.all([
+    getEntry('posts', '2025-02-14-the-myth-of-lightweight-frameworks'),
+    getEntry('posts', '2025-02-14-sustainable-separation-business-logic'),
+  ])
+).filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+const articles: Article[] = [...bisslogArticles, ...theory].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<Base
+  title="bisslog — hexagonal architecture for Python · Darwin Herrera"
+  description="bisslog is an open-source Python library that keeps business logic in plain use cases and moves frameworks and infrastructure into adapters."
+  contactTitle="Want this separation in your services?"
+  contactText="Tell me on LinkedIn about the system. I answer every message."
+>
+  <section class="container head">
+    <div class="intro">
+      <img
+        src="/assets/img/brand/bisslog-logo-imagotipo.png"
+        width="180"
+        height="59"
+        alt="bisslog"
+        class="logo"
+      />
+      <h1>The use case stays. Everything around it changes.</h1>
+      <p class="lede text-2">
+        bisslog is my open-source library for hexagonal architecture in Python. Business rules live in plain use cases
+        with no framework code; HTTP, queues, Lambda and databases plug in as adapters. It is not a framework: the core
+        has no external dependencies.
+      </p>
+      <div class="link-row">
+        <a href="https://github.com/darwinhc/bisslog-core-py">Source code</a>
+        <a href="https://pypi.org/project/bisslog/">PyPI</a>
+        <a href="https://github.com/darwinhc/company-data-registry.microservice">Example service</a>
+      </div>
+    </div>
+    <BisslogDemo />
+  </section>
+
+  <section class="band">
+    <div class="container split section">
+      <h2 class="split-title">The problem</h2>
+      <div class="split-body text-2">
+        <p>
+          In most services the business logic is written inside the framework: a Flask route opens the database client,
+          applies the rules and formats the response. It works until the service has to run as a Lambda, read from a
+          queue or move from MongoDB to PostgreSQL. Then the rules have to be rewritten, because they were never apart.
+        </p>
+        <figure class="diagram">
+          <img
+            src="/assets/img/entry-points-problem.png"
+            width="551"
+            height="355"
+            alt="Diagram: a use case written inside Flask, with a PyMongo handler inside the use case talking to MongoDB. FastAPI and AWS Lambda are shown as other entry point technologies it cannot move to."
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="container split section">
+    <h2 class="split-title">The idea</h2>
+    <div class="split-body text-2">
+      <p>
+        Each service is organised around its use cases, which say <strong>what</strong> the system does. How it is
+        triggered (HTTP, EventBridge, Lambda, a CLI) and where the data lives (MongoDB, PostgreSQL, S3) are adapters
+        behind ports that the use cases define. An entry point is just another adapter.
+      </p>
+      <figure class="diagram">
+        <img
+          src="/assets/img/entry-points-explanation.png"
+          width="621"
+          height="390"
+          alt="Diagram: possible entry points (AWS Lambda, FastAPI, Flask, Django, RabbitMQ, Kafka) are mapped to a microservice whose use cases talk to ports for the database, publisher, notifier, file upload and WebSockets; adapters such as PostgreSQL, PyMongo and RabbitMQ implement those ports."
+          loading="lazy"
+        />
+      </figure>
+      <p>
+        Service and use-case metadata is written in YAML, so the HTTP routes, Lambda handlers and FastAPI apps can be
+        generated instead of written by hand. Because the rules are declared apart from any framework, translating a use
+        case to another stack, by hand or with AI assistance, is a contained task.
+      </p>
+    </div>
+  </section>
+
+  <section class="container section flush" aria-labelledby="packages-title">
+    <h2 id="packages-title">Packages</h2>
+    <ul class="packages">
+      {
+        bisslogPackages.map((pkg) => (
+          <li>
+            <a class="mono" href={pkg.href}>
+              {pkg.name}
+            </a>
+            <span>{pkg.text}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="container section flush" aria-labelledby="reading-title">
+    <h2 id="reading-title">Read more</h2>
+    <div class="list">
+      <ArticleList articles={articles} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head {
+    padding-top: 80px;
+    padding-bottom: 96px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .intro {
+    flex: 1 1 420px;
+    min-width: 0;
+    max-width: 540px;
+  }
+
+  .logo {
+    width: 150px;
+    margin-bottom: 28px;
+  }
+
+  .lede {
+    margin: 24px 0 28px;
+  }
+
+  .section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+  }
+
+  .flush {
+    padding-top: 0;
+  }
+
+  .diagram {
+    margin: 28px 0 0;
+    padding: clamp(12px, 2vw, 24px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+  }
+
+  .diagram img {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .packages {
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    column-gap: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .packages li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .packages a {
+    font-size: 15px;
+  }
+
+  .packages span {
+    display: block;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .list {
+    margin-top: 32px;
+  }
+
+  @media (max-width: 560px) {
+    .head {
+      padding-top: 56px;
+      padding-bottom: 72px;
+    }
+
+    .section {
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+
+    .flush {
+      padding-top: 0;
+    }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import { articlePath, articleTitle, formatMonth, type Article } from '../lib/articles';
+interface Props {
+  articles: Article[];
+}
+const { articles } = Astro.props;
+---
+
+<ul class="articles">
+  {
+    articles.map((entry) => (
+      <li>
+        <time class="mono" datetime={entry.data.date.toISOString()}>
+          {formatMonth(entry.data.date)}
+        </time>
+        <a href={articlePath(entry)}>{articleTitle(entry)}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .articles {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 40px;
+    padding: 22px 16px;
+    border-bottom: 1px solid var(--line);
+    transition: background-color 220ms var(--ease);
+  }
+
+  li:hover {
+    background: var(--subtle);
+  }
+
+  time {
+    flex: 0 0 120px;
+    padding-top: 3px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  a {
+    flex: 1 1 420px;
+    min-width: 0;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  li:hover a {
+    color: var(--accent);
+  }
+</style>
