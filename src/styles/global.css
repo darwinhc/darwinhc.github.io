@@ -183,6 +183,11 @@ p {
   color: var(--dark-link);
 }
 
+.band-dark :focus-visible,
+.case-dark :focus-visible {
+  outline-color: var(--dark-link);
+}
+
 .lede {
   font-size: 18px;
   color: var(--text-2);

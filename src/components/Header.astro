@@ -25,7 +25,11 @@ const links =
     <div class="links">
       {
         links.map((link) => (
-          <a href={link.href} aria-current={path === link.href ? 'page' : undefined}>
+          <a
+            href={link.href}
+            class:list={[{ 'wide-only': link.href !== '/cv/' }]}
+            aria-current={path === link.href ? 'page' : undefined}
+          >
             {link.label}
           </a>
         ))
@@ -93,12 +97,17 @@ const links =
 
   @media (max-width: 560px) {
     .nav {
-      padding-top: 12px;
-      padding-bottom: 12px;
+      flex-wrap: nowrap;
+      min-height: 64px;
     }
 
     .links {
-      gap: 0 20px;
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+
+    .wide-only {
+      display: none;
     }
   }
 </style>

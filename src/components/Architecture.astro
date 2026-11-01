@@ -134,7 +134,7 @@ const { summary, clients, clientLink, twoWay = false, entry, useCases, domain, a
 
     <div class="col">
       <p class="label">Adapters</p>
-      <ul class="stack">
+      <ul class="stack adapters">
         {
           adapters.map((node) => (
             <li class="node">
@@ -175,8 +175,8 @@ const { summary, clients, clientLink, twoWay = false, entry, useCases, domain, a
 
   .label {
     margin: 0 0 14px;
-    font-family: var(--mono);
     font-size: 13px;
+    font-weight: 500;
     line-height: 20px;
     color: var(--muted);
   }
@@ -391,6 +391,11 @@ const { summary, clients, clientLink, twoWay = false, entry, useCases, domain, a
     .clients {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    }
+
+    .adapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     }
 
     .hex-body {
