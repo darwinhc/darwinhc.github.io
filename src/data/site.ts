@@ -13,5 +13,5 @@ export const site = {
    * Empty means no analytics script is loaded. Create the account at
    * https://www.goatcounter.com with this code, then set it here.
    */
-  goatcounter: '',
+  goatcounter: 'darwinhc',
 };
