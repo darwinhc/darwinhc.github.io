@@ -77,22 +77,39 @@ const services = [
         <a class="btn secondary-btn" href={site.github}>GitHub</a>
       </div>
     </div>
-    <figure class="hero-figure">
-      <div class="tv">
-        <Image
-          src={tvScoreboard}
-          alt="Live TV scoreboard of a five-judge taekwondo match: each judge's technique and presentation per round, the consolidated values and each athlete's total"
-          widths={[600, 900, 1200]}
-          sizes="(min-width: 1024px) 620px, 100vw"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-      <figcaption class="small muted">
-        <span><strong>TKD Poomsae Scorer</strong> — the live scoreboard of a five-judge match.</span>
-        <a href="/work/tkd-poomsae-scorer/">Read the case study</a>
-      </figcaption>
-    </figure>
+    <div class="hero-work" aria-label="Selected work">
+      <figure class="hero-shot">
+        <a href="/work/tkd-poomsae-scorer/" class="frame frame-dark" tabindex="-1" aria-hidden="true">
+          <Image
+            src={tvScoreboard}
+            alt=""
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 1024px) 620px, 100vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </a>
+        <figcaption class="small">
+          <span class="muted"><strong>TKD Poomsae Scorer</strong> — offline scoring, live on the venue TV</span>
+          <a href="/work/tkd-poomsae-scorer/" class="arrow-link">Case study <ArrowIcon size={14} /></a>
+        </figcaption>
+      </figure>
+      <figure class="hero-shot">
+        <a href="/work/realtime-events/" class="frame" tabindex="-1" aria-hidden="true">
+          <Image
+            src={eventsDesktop}
+            alt=""
+            widths={[600, 900, 1200, 1600]}
+            sizes="(min-width: 1024px) 620px, 100vw"
+            loading="eager"
+          />
+        </a>
+        <figcaption class="small">
+          <span class="muted"><strong>Realtime Events</strong> — every screen in sync, live</span>
+          <a href="/work/realtime-events/" class="arrow-link">Case study <ArrowIcon size={14} /></a>
+        </figcaption>
+      </figure>
+    </div>
   </section>
 
   <section id="work" class="container work-head" aria-labelledby="work-title">
@@ -377,37 +394,61 @@ const services = [
     gap: 12px;
   }
 
-  .hero-figure {
+  .hero-work {
     flex: 1 1 520px;
     min-width: 0;
+    display: grid;
+    gap: 24px;
+  }
+
+  .hero-shot {
     margin: 0;
   }
 
-  .tv {
+  .frame {
+    display: block;
     border-radius: var(--radius);
     overflow: hidden;
-    background: #0f172a;
+    border: 1px solid var(--line);
+    background: #0b0e0b;
     box-shadow: var(--shadow);
   }
 
-  .tv :global(img) {
+  .frame-dark {
+    border-color: #0f172a;
+    background: #0f172a;
+  }
+
+  .frame :global(img) {
     width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 400ms var(--ease);
   }
 
-  .hero-figure figcaption {
-    margin-top: 16px;
+  .frame:hover :global(img) {
+    transform: scale(1.015);
+  }
+
+  .hero-shot figcaption {
+    margin-top: 10px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 8px 24px;
+    align-items: baseline;
+    gap: 4px 20px;
   }
 
-  .hero-figure strong {
+  .hero-shot figcaption a {
+    flex: none;
+  }
+
+  .hero-shot strong {
     color: var(--ink);
-    font-weight: 500;
+    font-weight: 600;
   }
 
-  .hero-figure a,
+  .hero-shot figcaption a,
   .strong-link {
     font-weight: 500;
   }
