@@ -11,7 +11,7 @@ It presents two case studies with their backend architecture, the open-source li
 - Images optimised at build time with `astro:assets`
 - Self-hosted fonts: Schibsted Grotesk and Fragment Mono
 - Technology logos from [Simple Icons](https://simpleicons.org) and symbols from [Lucide](https://lucide.dev)
-- Deployed to GitHub Pages by `.github/workflows/pages-deploy.yml` on every push to `main`
+- Deployed to GitHub Pages by `.github/workflows/pages-deploy.yml` on every push to `main`. In Settings → Pages, Source must be **GitHub Actions**; with "Deploy from a branch", GitHub also tries a Jekyll build of the repo, which fails.
 
 ## Run locally
 
