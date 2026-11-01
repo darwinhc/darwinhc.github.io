@@ -93,7 +93,7 @@ const projects = [
   contactTitle="Want to talk about a role or a project?"
 >
   <div class="container cv">
-    <header class="cv-head">
+    <div class="cv-head">
       <div>
         <h1>{site.fullName}</h1>
         <p class="role">{site.role} · {site.stackLine}</p>
@@ -103,8 +103,8 @@ const projects = [
           <a href={site.github}>github.com/darwinhc</a>
         </p>
       </div>
-      <Image src={avatar} alt="Darwin Herrera" width={192} height={192} class="cv-avatar" />
-    </header>
+      <Image src={avatar} alt="Darwin Herrera" width={192} height={192} class="cv-avatar" loading="eager" />
+    </div>
 
     <p class="summary text-2">
       Backend engineer with 6+ years designing and building scalable systems in Python and Java (Spring Boot) on AWS and
