@@ -346,6 +346,7 @@ Every raster that ships, where it came from, and what it may show. Images under 
 | `src/assets/work/events-phone.jpg` | Same project and local run | Same |
 | `src/assets/about/graduation.jpg` | The owner's personal photo, supplied by him | Shown with his consent; only the owner is identifiable. Photos with other people were excluded on purpose |
 | `src/assets/about/taekwondo-1st-dan.jpg` | The owner's personal photo, supplied by him | Same |
+| `src/assets/about/motorcycle.jpg` | The owner's personal photo from a motorcycle trip, supplied by him | Only the owner, in a helmet; the licence plate is not visible |
 | `src/assets/about/avatar.jpg` | The owner's profile photo | Cropped square |
 | `public/assets/img/bisslog-animation.gif` | The owner's own artwork from the previous site | |
 | `public/assets/img/bisslog-animation-still.png` | First frame of `bisslog-animation.gif` | Served under reduced motion |

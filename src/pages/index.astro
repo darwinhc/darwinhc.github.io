@@ -17,6 +17,7 @@ import eventsPhone from '../assets/work/events-phone.jpg';
 import avatar from '../assets/about/avatar.jpg';
 import graduation from '../assets/about/graduation.jpg';
 import taekwondo from '../assets/about/taekwondo-1st-dan.jpg';
+import motorcycle from '../assets/about/motorcycle.jpg';
 
 // The five pieces that best show how I think; the full list lives on /writing/.
 const featuredIds = [
@@ -307,7 +308,7 @@ const services = [
           src={graduation}
           alt="Darwin Herrera holding his engineering diploma in front of the Facultad de Minas building"
           widths={[420, 640, 790]}
-          sizes="(min-width: 1024px) 580px, 100vw"
+          sizes="(min-width: 1024px) 380px, (min-width: 720px) 50vw, 100vw"
           class="photo grad"
         />
         <h3>Systems and Computer Engineer</h3>
@@ -321,7 +322,7 @@ const services = [
           src={taekwondo}
           alt="Darwin Herrera in his black belt and dobok, holding his 1st Dan certificate next to the banner of the National University of Colombia taekwondo club"
           widths={[420, 640, 790]}
-          sizes="(min-width: 1024px) 580px, 100vw"
+          sizes="(min-width: 1024px) 380px, (min-width: 720px) 50vw, 100vw"
           class="photo tkd"
         />
         <h3>Taekwondo black belt, 1st Dan</h3>
@@ -329,6 +330,19 @@ const services = [
           Certified at the National University of Colombia taekwondo club, where I spent two years as an assistant
           instructor. The same sport is behind <a href="/work/tkd-poomsae-scorer/">TKD Poomsae Scorer</a>. I also
           practise public speaking with Toastmasters.
+        </p>
+      </article>
+      <article>
+        <Image
+          src={motorcycle}
+          alt="Darwin Herrera in a helmet and riding jacket on his red motorcycle, giving a thumbs up on a mountain road"
+          widths={[420, 640, 790]}
+          sizes="(min-width: 1024px) 380px, (min-width: 720px) 50vw, 100vw"
+          class="photo moto"
+        />
+        <h3>On the road by motorcycle</h3>
+        <p class="text-2">
+          I travel by motorcycle: long rides through the mountains of Colombia and down to Ecuador.
         </p>
       </article>
     </div>
@@ -702,8 +716,8 @@ const services = [
   .about-grid {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
-    gap: 48px 40px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 48px 32px;
   }
 
   .about :global(.photo) {
@@ -720,6 +734,10 @@ const services = [
 
   .about :global(.tkd) {
     object-position: center 60%;
+  }
+
+  .about :global(.moto) {
+    object-position: center 55%;
   }
 
   .about h3 {
